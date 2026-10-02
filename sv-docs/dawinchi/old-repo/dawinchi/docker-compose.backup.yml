@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dawinchi:
+    build: .
+    ports:
+      - "3500:3500"
+    volumes:
+      - ./:/app
+      - /app/daWinchi-api/node_modules
+    environment:
+      - PORT=3500
+    

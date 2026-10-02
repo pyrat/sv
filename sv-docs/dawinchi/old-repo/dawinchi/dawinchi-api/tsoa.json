@@ -1,0 +1,15 @@
+{
+    "entryFile": "./api-ts/api.esm.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "controllerPathGlobs": ["api-ts/controllers/*Controller.esm.ts"],
+    "spec": {
+      "schemes": ["http"],
+      "host": "localhost:3500",
+      "outputDirectory": "build-tsoa",
+      "specVersion": 3
+    },
+    "routes": {
+      "routesDir": "build-tsoa",
+      "esm": true
+    }
+  }

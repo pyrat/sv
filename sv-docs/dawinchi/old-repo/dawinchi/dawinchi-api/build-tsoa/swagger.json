@@ -1,0 +1,848 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Level": {
+				"enum": [
+					"INFO",
+					"ERROR",
+					"FATAL",
+					"WARNING"
+				],
+				"type": "string"
+			},
+			"ApplicationLogResult": {
+				"properties": {
+					"EventID": {
+						"type": "string"
+					},
+					"EventType": {
+						"type": "string"
+					},
+					"Payload": {},
+					"CreatedAt": {
+						"type": "string"
+					},
+					"Level": {
+						"$ref": "#/components/schemas/Level"
+					},
+					"Id": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"EventID",
+					"EventType",
+					"Payload",
+					"CreatedAt",
+					"Level",
+					"Id"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AppLogResponse": {
+				"properties": {
+					"logs": {
+						"items": {
+							"$ref": "#/components/schemas/ApplicationLogResult"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"logs"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ErrorResponse": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"stack": {
+						"type": "string"
+					},
+					"code": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"name",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AuthResponse": {
+				"properties": {
+					"token": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"token"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AuthRequest": {
+				"properties": {
+					"username": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"username"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"AuthStatus": {
+				"properties": {
+					"authenticated": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"authenticated"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Directions": {
+				"properties": {
+					"up": {
+						"type": "boolean"
+					},
+					"down": {
+						"type": "boolean"
+					},
+					"wind": {
+						"type": "boolean"
+					},
+					"unwind": {
+						"type": "boolean"
+					},
+					"speed": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MoveResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"taskId": {
+						"type": "string"
+					},
+					"directions": {
+						"$ref": "#/components/schemas/Directions"
+					}
+				},
+				"required": [
+					"success"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MoveToResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"taskId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"success"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MoveToCoordinates": {
+				"properties": {
+					"x": {
+						"type": "number",
+						"format": "double"
+					},
+					"y": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"x",
+					"y"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MoveToRequest": {
+				"properties": {
+					"coordinates": {
+						"items": {
+							"$ref": "#/components/schemas/MoveToCoordinates"
+						},
+						"type": "array"
+					},
+					"schedule": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"coordinates"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"RampResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"success"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Command": {
+				"properties": {
+					"TaskId": {
+						"type": "string"
+					},
+					"CommandType": {
+						"type": "string"
+					},
+					"Parameters": {},
+					"CreatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"TaskId",
+					"CommandType",
+					"Parameters",
+					"CreatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommandStatus": {
+				"enum": [
+					"PENDING",
+					"RUNNING",
+					"FAILED",
+					"COMPLETED"
+				],
+				"type": "string"
+			},
+			"CommandResult": {
+				"properties": {
+					"TaskId": {
+						"type": "string"
+					},
+					"Command": {
+						"$ref": "#/components/schemas/Command"
+					},
+					"Result": {},
+					"Error": {},
+					"CompletedAt": {
+						"type": "string"
+					},
+					"Status": {
+						"$ref": "#/components/schemas/CommandStatus"
+					}
+				},
+				"required": [
+					"TaskId",
+					"Command",
+					"Result",
+					"Error",
+					"CompletedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CronJobTask": {
+				"properties": {
+					"Schedule": {
+						"type": "string"
+					},
+					"TaskName": {
+						"type": "string"
+					},
+					"TaskParameters": {},
+					"Id": {
+						"type": "number",
+						"format": "double"
+					},
+					"LastRun": {
+						"type": "string"
+					},
+					"CreatedAt": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"Schedule",
+					"TaskName",
+					"TaskParameters",
+					"Id",
+					"LastRun",
+					"CreatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CronJobsResponse": {
+				"properties": {
+					"crons": {
+						"items": {
+							"$ref": "#/components/schemas/CronJobTask"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"crons"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"StatusResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"success"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "dawinchi",
+		"version": "1.0.0",
+		"description": "Dawinci is the codename for the new (smarter)Smart Winch",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/v1/applog": {
+			"get": {
+				"operationId": "Applog",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AppLogResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Logs"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "eventType",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "level",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "eventId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "from",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "to",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/auth/authorize": {
+			"post": {
+				"operationId": "Authorize",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AuthRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/auth/status": {
+			"get": {
+				"operationId": "Status",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AuthStatus"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/v1/motor/move": {
+			"post": {
+				"operationId": "Move",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/MoveResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Motor"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Directions"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/motor/moveto": {
+			"post": {
+				"operationId": "MoveTo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/MoveToResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Motor"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MoveToRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/motor/stop": {
+			"post": {
+				"operationId": "Stop",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RampResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Motor"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/v1/queue/{taskId}/status": {
+			"get": {
+				"operationId": "Status",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CommandResult"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Queue"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "taskId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/queue/crons": {
+			"get": {
+				"operationId": "GetCrons",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CronJobsResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Queue"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/api/v1/queue/crons/{cronId}": {
+			"get": {
+				"operationId": "GetCron",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CronJobTask"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ErrorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Queue"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "cronId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/status": {
+			"get": {
+				"operationId": "Status",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StatusResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/StatusResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3500/"
+		}
+	]
+}

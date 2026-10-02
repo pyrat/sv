@@ -1,0 +1,407 @@
+basePath: /
+info:
+  contact: {}
+  title: Dawinchi HW API
+  version: "1.0"
+paths:
+  /api/v1/cmd:
+    post:
+      consumes:
+      - application/json
+      description: |
+        Creates a websocket connection with [JSON-RPC 2.0 protocol](https://www.jsonrpc.org/specification). _(batch requests are not supported)_
+        The client can send requests and receive notifications.
+        The server can receive requests, send responses and notifications.
+
+        # Available methods:
+        ---
+        ## *move*:
+        - moves the winch to the specified right, left motor counters (computed by client in relation to x,z cordiantes).
+        - _response is streamed to the client, on [event](#/websocket/post_api_v1_event) endpoint, until the winch reaches the specified counters._
+
+        #### _Request_:
+        `
+        {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "method": "move",
+        "params": {
+        "right_motor_counter": 22000,
+        "left_motor_counter": 22000,
+        "speed": 10
+        }
+        }
+        `
+
+        #### _Response_:
+        `
+        {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "result": {
+        "status": "running",
+        "right_motor_counter": 1000,
+        "left_motor_counter": 1000,
+        "speed": 10
+        }
+        }
+        `
+        ..........................................
+        `
+        {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "result": {
+        "status": "done",
+        "right_motor_counter": 22000,
+        "left_motor_counter": 22000,
+        "speed": 10
+        }
+        }
+        `
+        ---
+        ## *state*:
+        - sends the current state of the winch to the client.
+
+        #### _Request_:
+        `
+        {
+        "id": 2,
+        "jsonrpc": "2.0",
+        "method": "state"
+        }
+        `
+
+        #### _Response_:
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "state",
+        "params": {
+        "right_motor": {
+        "direction": 0,
+        "running": false,
+        "speed": 0,
+        "counter": 0,
+        "driver_status": {
+        "status": 1,
+        "error": null
+        },
+        "break_status": {
+        "status": 1,
+        "error": null
+        },
+        "current_state": {
+        "voltage": 0.070734375,
+        "amperage": 2.08671875,
+        "error": null
+        }
+        },
+        "left_motor": {
+        "direction": 0,
+        "running": false,
+        "speed": 0,
+        "counter": 0,
+        "driver_status": {
+        "status": 1,
+        "error": null
+        },
+        "break_status": {
+        "status": 1,
+        "error": null
+        },
+        "current_state": {
+        "voltage": 0.0478125,
+        "amperage": 0.9406249999999999,
+        "error": null
+        }
+        },
+        "buttons_panel": {
+        "led_locked_state": 1,
+        "led_error_state": 1,
+        "button_home_state": "ButtonHomeRelease",
+        "button_home_last_state": "ButtonHomeRelease",
+        "button_up_state": "ButtonUpRelease",
+        "button_up_last_state": "ButtonUpRelease",
+        "button_down_state": "ButtonDownRelease",
+        "button_down_last_state": "ButtonDownRelease",
+        "button_in_state": "ButtonInRelease",
+        "button_in_last_state": "ButtonInRelease",
+        "button_out_state": "ButtonOutRelease",
+        "button_out_last_state": "ButtonOutRelease",
+        "action_status_right": "On",
+        "action_status_left": "On"
+        },
+        "status": "",
+        "error": ""
+        }
+        }
+        `
+        ---
+        **JSON-RPC 2.0 protocol**:
+
+        **Request** is a JSON object:
+        - id: An identifier established by the Client that MUST contain a Number.
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - method: A String containing the name of the method to be invoked.
+        - params: A Structured value that holds the parameter values to be used during the invocation of the method.
+
+        **Response** is a JSON object:
+        - id: REQUIRED identifier matching **Request** id.
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - result: REQUIRED on success.
+        - error: REQUIRED on error.
+
+        **Notification** is a JSON object:
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - method: A String containing the name of the method to be invoked.
+        - params: A Structured value that holds the parameter values to be used during the invocation of the method.
+
+        **Error** is a JSON object:
+        - code: A Number that indicates the error type that occurred.
+        - message: A String providing a short description of the error.
+        - data: A Primitive or Structured value that contains additional information about the error.
+      produces:
+      - application/json
+      responses: {}
+      summary: Websocket(ws) endpoint for sending commands to the winch.
+      tags:
+      - websocket
+  /api/v1/event:
+    post:
+      consumes:
+      - application/json
+      description: |
+        Creates a websocket connection with [JSON-RPC 2.0 protocol](https://www.jsonrpc.org/specification). _(batch requests are not supported)_
+        The client can send requests and receive notifications.
+        The server can receive requests, send responses and notifications.
+
+        # Available methods:
+        ---
+        ## *event*:
+        - starts streaming events from the winch.
+        - start_id: starts stream from event ID to current event.
+        - filter: can filter by method and request_id.
+
+        #### _Request_:
+        `
+        {
+        "id": 1,
+        "jsonrpc": "2.0",
+        "method": "event",
+        "params": {
+        "start_id": 13,
+        "filter": {
+        "request_id": 1,
+        "method": "move"
+        }
+        }
+        }
+        `
+
+        #### _Response_:
+        `
+        {
+        "id": 1,
+        "result": "started",
+        "jsonrpc": "2.0"
+        }
+        `
+        ---
+
+        # Available events:
+        ---
+        ## *move*:
+        - _streamed `move` method(command) until the winch reaches the specified counters._
+
+        #### _Response_:
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "move",
+        "params": {
+        "event_id": 1,
+        "status": "running",
+        "right_motor_counter": 230,
+        "left_motor_counter": 230,
+        "speed": 10,
+        "sync": true
+        }
+        }
+        `
+        ..........................................
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "move",
+        "params": {
+        "event_id": 2,
+        "status": "done",
+        "right_motor_counter": 1000,
+        "left_motor_counter": 1000,
+        "speed": 0,
+        "sync": true
+        }
+        }
+        `
+        ---
+        ## *log*:
+        - _streamed `log` winch._
+
+        #### _Response_:
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "log",
+        "params": {
+        "event_id": 3,
+        "level": "info",
+        "message": "TODO: format for payload logs",
+        "payload": {}
+        }
+        }
+        `
+        ..........................................
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "log",
+        "params": {
+        "event_id": 4,
+        "level": "info",
+        "message": "TODO: format for payload logs",
+        "payload": {}
+        }
+        }
+        `
+        ---
+        ## *state*:
+        - sends the current state of the winch to the client.
+
+        #### _Response_:
+        `
+        {
+        "jsonrpc": "2.0",
+        "method": "state",
+        "params": {
+        "right_motor": {
+        "direction": 0,
+        "running": false,
+        "speed": 0,
+        "counter": 0,
+        "driver_status": {
+        "status": 1,
+        "error": null
+        },
+        "break_status": {
+        "status": 1,
+        "error": null
+        },
+        "current_state": {
+        "voltage": 0.070734375,
+        "amperage": 2.08671875,
+        "error": null
+        }
+        },
+        "left_motor": {
+        "direction": 0,
+        "running": false,
+        "speed": 0,
+        "counter": 0,
+        "driver_status": {
+        "status": 1,
+        "error": null
+        },
+        "break_status": {
+        "status": 1,
+        "error": null
+        },
+        "current_state": {
+        "voltage": 0.0478125,
+        "amperage": 0.9406249999999999,
+        "error": null
+        }
+        },
+        "buttons_panel": {
+        "led_locked_state": 1,
+        "led_error_state": 1,
+        "button_home_state": "ButtonHomeRelease",
+        "button_home_last_state": "ButtonHomeRelease",
+        "button_up_state": "ButtonUpRelease",
+        "button_up_last_state": "ButtonUpRelease",
+        "button_down_state": "ButtonDownRelease",
+        "button_down_last_state": "ButtonDownRelease",
+        "button_in_state": "ButtonInRelease",
+        "button_in_last_state": "ButtonInRelease",
+        "button_out_state": "ButtonOutRelease",
+        "button_out_last_state": "ButtonOutRelease",
+        "action_status_right": "On",
+        "action_status_left": "On"
+        },
+        "status": "",
+        "error": ""
+        }
+        }
+        `
+        ---
+        **JSON-RPC 2.0 protocol**:
+
+        **Request** is a JSON object:
+        - id: An identifier established by the Client that MUST contain a Number.
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - method: A String containing the name of the method to be invoked.
+        - params: A Structured value that holds the parameter values to be used during the invocation of the method.
+
+        **Response** is a JSON object:
+        - id: REQUIRED identifier matching **Request** id.
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - result: REQUIRED on success.
+        - error: REQUIRED on error.
+
+        **Notification** is a JSON object:
+        - jsonrpc: A String specifying the version of the JSON-RPC protocol.
+        - method: A String containing the name of the method to be invoked.
+        - params: A Structured value that holds the parameter values to be used during the invocation of the method.
+
+        **Error** is a JSON object:
+        - code: A Number that indicates the error type that occurred.
+        - message: A String providing a short description of the error.
+        - data: A Primitive or Structured value that contains additional information about the error.
+      produces:
+      - application/json
+      responses: {}
+      summary: Websocket(ws) endpoint receiving events from the winch.
+      tags:
+      - websocket
+  /api/v1/health:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Health endpoint.
+      tags:
+      - health
+  /api/v1/ping:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Ping endpoint.
+      tags:
+      - health
+schemes:
+- http
+- ws
+swagger: "2.0"

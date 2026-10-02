@@ -146,6 +146,10 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+Authenitcating via curl : 
+
+- `curl -H "Content-Type: application/json" -XPOST http://localhost:3500/api/v1/authorize -d '{"username":"smartWinchAdmin"}'| jq .`
+
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_

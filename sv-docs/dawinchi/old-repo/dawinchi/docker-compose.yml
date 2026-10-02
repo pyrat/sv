@@ -1,0 +1,9 @@
+version: '3'
+services:
+  dawinchi:
+    build: .
+    privileged: true
+    ports:
+      - "3500:3500"
+    environment:
+      - PORT=3500

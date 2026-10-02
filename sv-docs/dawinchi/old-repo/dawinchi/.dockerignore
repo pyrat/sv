@@ -1,0 +1,7 @@
+./dawinchi-api/node_modules
+Dockerfile
+.dockerignore
+.git
+.gitignore
+docker-compose*
+config

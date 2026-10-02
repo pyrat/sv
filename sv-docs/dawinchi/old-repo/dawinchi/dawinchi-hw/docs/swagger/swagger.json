@@ -1,0 +1,91 @@
+{
+    "schemes": [
+        "http",
+        "ws"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "title": "Dawinchi HW API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/api/v1/cmd": {
+            "post": {
+                "description": "Creates a websocket connection with [JSON-RPC 2.0 protocol](https://www.jsonrpc.org/specification). _(batch requests are not supported)_\nThe client can send requests and receive notifications.\nThe server can receive requests, send responses and notifications.\n\n# Available methods:\n---\n## *move*:\n- moves the winch to the specified right, left motor counters (computed by client in relation to x,z cordiantes).\n- _response is streamed to the client, on [event](#/websocket/post_api_v1_event) endpoint, until the winch reaches the specified counters._\n\n#### _Request_:\n`\n{\n\"id\": 1,\n\"jsonrpc\": \"2.0\",\n\"method\": \"move\",\n\"params\": {\n\"right_motor_counter\": 22000,\n\"left_motor_counter\": 22000,\n\"speed\": 10\n}\n}\n`\n\n#### _Response_:\n`\n{\n\"id\": 1,\n\"jsonrpc\": \"2.0\",\n\"result\": {\n\"status\": \"running\",\n\"right_motor_counter\": 1000,\n\"left_motor_counter\": 1000,\n\"speed\": 10\n}\n}\n`\n..........................................\n`\n{\n\"id\": 1,\n\"jsonrpc\": \"2.0\",\n\"result\": {\n\"status\": \"done\",\n\"right_motor_counter\": 22000,\n\"left_motor_counter\": 22000,\n\"speed\": 10\n}\n}\n`\n---\n## *state*:\n- sends the current state of the winch to the client.\n\n#### _Request_:\n`\n{\n\"id\": 2,\n\"jsonrpc\": \"2.0\",\n\"method\": \"state\"\n}\n`\n\n#### _Response_:\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"state\",\n\"params\": {\n\"right_motor\": {\n\"direction\": 0,\n\"running\": false,\n\"speed\": 0,\n\"counter\": 0,\n\"driver_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"break_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"current_state\": {\n\"voltage\": 0.070734375,\n\"amperage\": 2.08671875,\n\"error\": null\n}\n},\n\"left_motor\": {\n\"direction\": 0,\n\"running\": false,\n\"speed\": 0,\n\"counter\": 0,\n\"driver_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"break_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"current_state\": {\n\"voltage\": 0.0478125,\n\"amperage\": 0.9406249999999999,\n\"error\": null\n}\n},\n\"buttons_panel\": {\n\"led_locked_state\": 1,\n\"led_error_state\": 1,\n\"button_home_state\": \"ButtonHomeRelease\",\n\"button_home_last_state\": \"ButtonHomeRelease\",\n\"button_up_state\": \"ButtonUpRelease\",\n\"button_up_last_state\": \"ButtonUpRelease\",\n\"button_down_state\": \"ButtonDownRelease\",\n\"button_down_last_state\": \"ButtonDownRelease\",\n\"button_in_state\": \"ButtonInRelease\",\n\"button_in_last_state\": \"ButtonInRelease\",\n\"button_out_state\": \"ButtonOutRelease\",\n\"button_out_last_state\": \"ButtonOutRelease\",\n\"action_status_right\": \"On\",\n\"action_status_left\": \"On\"\n},\n\"status\": \"\",\n\"error\": \"\"\n}\n}\n`\n---\n**JSON-RPC 2.0 protocol**:\n\n**Request** is a JSON object:\n- id: An identifier established by the Client that MUST contain a Number.\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- method: A String containing the name of the method to be invoked.\n- params: A Structured value that holds the parameter values to be used during the invocation of the method.\n\n**Response** is a JSON object:\n- id: REQUIRED identifier matching **Request** id.\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- result: REQUIRED on success.\n- error: REQUIRED on error.\n\n**Notification** is a JSON object:\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- method: A String containing the name of the method to be invoked.\n- params: A Structured value that holds the parameter values to be used during the invocation of the method.\n\n**Error** is a JSON object:\n- code: A Number that indicates the error type that occurred.\n- message: A String providing a short description of the error.\n- data: A Primitive or Structured value that contains additional information about the error.\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "websocket"
+                ],
+                "summary": "Websocket(ws) endpoint for sending commands to the winch.",
+                "responses": {}
+            }
+        },
+        "/api/v1/event": {
+            "post": {
+                "description": "Creates a websocket connection with [JSON-RPC 2.0 protocol](https://www.jsonrpc.org/specification). _(batch requests are not supported)_\nThe client can send requests and receive notifications.\nThe server can receive requests, send responses and notifications.\n\n# Available methods:\n---\n## *event*:\n- starts streaming events from the winch.\n- start_id: starts stream from event ID to current event.\n- filter: can filter by method and request_id.\n\n#### _Request_:\n`\n{\n\"id\": 1,\n\"jsonrpc\": \"2.0\",\n\"method\": \"event\",\n\"params\": {\n\"start_id\": 13,\n\"filter\": {\n\"request_id\": 1,\n\"method\": \"move\"\n}\n}\n}\n`\n\n#### _Response_:\n`\n{\n\"id\": 1,\n\"result\": \"started\",\n\"jsonrpc\": \"2.0\"\n}\n`\n---\n\n# Available events:\n---\n## *move*:\n- _streamed `move` method(command) until the winch reaches the specified counters._\n\n#### _Response_:\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"move\",\n\"params\": {\n\"event_id\": 1,\n\"status\": \"running\",\n\"right_motor_counter\": 230,\n\"left_motor_counter\": 230,\n\"speed\": 10,\n\"sync\": true\n}\n}\n`\n..........................................\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"move\",\n\"params\": {\n\"event_id\": 2,\n\"status\": \"done\",\n\"right_motor_counter\": 1000,\n\"left_motor_counter\": 1000,\n\"speed\": 0,\n\"sync\": true\n}\n}\n`\n---\n## *log*:\n- _streamed `log` winch._\n\n#### _Response_:\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"log\",\n\"params\": {\n\"event_id\": 3,\n\"level\": \"info\",\n\"message\": \"TODO: format for payload logs\",\n\"payload\": {}\n}\n}\n`\n..........................................\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"log\",\n\"params\": {\n\"event_id\": 4,\n\"level\": \"info\",\n\"message\": \"TODO: format for payload logs\",\n\"payload\": {}\n}\n}\n`\n---\n## *state*:\n- sends the current state of the winch to the client.\n\n#### _Response_:\n`\n{\n\"jsonrpc\": \"2.0\",\n\"method\": \"state\",\n\"params\": {\n\"right_motor\": {\n\"direction\": 0,\n\"running\": false,\n\"speed\": 0,\n\"counter\": 0,\n\"driver_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"break_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"current_state\": {\n\"voltage\": 0.070734375,\n\"amperage\": 2.08671875,\n\"error\": null\n}\n},\n\"left_motor\": {\n\"direction\": 0,\n\"running\": false,\n\"speed\": 0,\n\"counter\": 0,\n\"driver_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"break_status\": {\n\"status\": 1,\n\"error\": null\n},\n\"current_state\": {\n\"voltage\": 0.0478125,\n\"amperage\": 0.9406249999999999,\n\"error\": null\n}\n},\n\"buttons_panel\": {\n\"led_locked_state\": 1,\n\"led_error_state\": 1,\n\"button_home_state\": \"ButtonHomeRelease\",\n\"button_home_last_state\": \"ButtonHomeRelease\",\n\"button_up_state\": \"ButtonUpRelease\",\n\"button_up_last_state\": \"ButtonUpRelease\",\n\"button_down_state\": \"ButtonDownRelease\",\n\"button_down_last_state\": \"ButtonDownRelease\",\n\"button_in_state\": \"ButtonInRelease\",\n\"button_in_last_state\": \"ButtonInRelease\",\n\"button_out_state\": \"ButtonOutRelease\",\n\"button_out_last_state\": \"ButtonOutRelease\",\n\"action_status_right\": \"On\",\n\"action_status_left\": \"On\"\n},\n\"status\": \"\",\n\"error\": \"\"\n}\n}\n`\n---\n**JSON-RPC 2.0 protocol**:\n\n**Request** is a JSON object:\n- id: An identifier established by the Client that MUST contain a Number.\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- method: A String containing the name of the method to be invoked.\n- params: A Structured value that holds the parameter values to be used during the invocation of the method.\n\n**Response** is a JSON object:\n- id: REQUIRED identifier matching **Request** id.\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- result: REQUIRED on success.\n- error: REQUIRED on error.\n\n**Notification** is a JSON object:\n- jsonrpc: A String specifying the version of the JSON-RPC protocol.\n- method: A String containing the name of the method to be invoked.\n- params: A Structured value that holds the parameter values to be used during the invocation of the method.\n\n**Error** is a JSON object:\n- code: A Number that indicates the error type that occurred.\n- message: A String providing a short description of the error.\n- data: A Primitive or Structured value that contains additional information about the error.\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "websocket"
+                ],
+                "summary": "Websocket(ws) endpoint receiving events from the winch.",
+                "responses": {}
+            }
+        },
+        "/api/v1/health": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "health"
+                ],
+                "summary": "Health endpoint.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ping": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "health"
+                ],
+                "summary": "Ping endpoint.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
