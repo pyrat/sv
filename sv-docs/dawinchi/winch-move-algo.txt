@@ -1,0 +1,101 @@
+position 1: in-out: 66345
+88142 - no tension
+58142 - full tension
+88142 - 58142 = 30000 ~= 54.54 cm (-payload height)
+
+position 1: in-out: 325038
+234164 - no tension
+198164 - full tension
+234164 - 198164 = 36000 ~= 65.45 cm (-payload height)
+
+325038 - 66345 = 258693 = 10.91 cm 
+
+
+--------------------
+start
+10cm payload tall,
+
+"up_down_motor_counter": 66000,
+"up_down_motor_speed": 0,
+"in_out_motor_counter": 25842,
+"in_out_motor_speed": 0
+160cm - with load
+170cm- no load
+
+
+"up_down_motor_counter": 180432,
+"up_down_motor_speed": 0,
+"in_out_motor_counter": 289812 - 471 cm
+115 - full load
+160 - no load
+
+
+"up_down_motor_counter": 847695,
+"up_down_motor_speed": 0,
+"in_out_motor_counter": 1206106,
+"in_out_motor_speed": 0
+107 - full load
+168 - no load
+
+
+max counters
+"status": "idle",
+"up_down_motor_counter": 1110995,
+"up_down_motor_speed": 0,
+"in_out_motor_counter": 1671001, - 
+"in_out_motor_speed": 0
+166 - full load 
+190 - no load
+
+--------------------------------------
+winch <-> gearbox = 74 cm - back to 0,0 52cm
+
+~start
+"up_down_motor_counter": 0,
+"in_out_motor_counter": 0,
+(white gearbox <-> gorund)
+156cm - full load
+173cm - no load
+
+
+~middle of the X
+"up_down_motor_counter": 486016, 
+"in_out_motor_counter": 734428, (1126)
+81 - full load
+146 - no load
+
+
+~end
+"up_down_motor_counter": 1124708,
+"in_out_motor_counter": 1699841, (2777)
+170 - full load
+189 - no load
+
+
+-----------------
+
+64 - Y 
+149 - load
+
+- center
+69 - Y
+50 -load
+
+---
+center back: 41cm
+1/2 back : 96cm
+0 back: 105cm
+
+current Y:
+0.65 - multi
+2024-04-08T13:44:24+02:00 TRC Up/Down motor: voltage: 0.0463, amps: 2.3164
+2024-04-08T13:44:25+02:00 TRC Up/Down motor: voltage: 0.0464, amps: 2.3188
+2024-04-08T13:44:26+02:00 TRC Up/Down motor: voltage: 0.0462, amps: 2.3125
+
+
+current X:
+2.7 - multi
+2.5 - multi
+2024-04-08T14:05:57+02:00 TRC In/Out motor: voltage: 0.0955, amps: 4.7773
+2024-04-08T14:05:57+02:00 TRC In/Out motor: voltage: 0.0955, amps: 4.7773
+2024-04-08T14:06:01+02:00 TRC In/Out motor: voltage: 0.0948, amps: 4.7414

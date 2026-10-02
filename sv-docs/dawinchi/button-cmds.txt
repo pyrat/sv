@@ -1,0 +1,2 @@
+// service mode
+raspi-gpio set 14 ip pd && raspi-gpio set 15 ip pd && raspi-gpio set 17 ip pd && sleep 13 && raspi-gpio set 14 ip pu && raspi-gpio set 15 ip pu && raspi-gpio set 17 ip pu

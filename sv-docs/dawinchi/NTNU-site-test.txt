@@ -1,0 +1,59 @@
+NTNU
+
+- good position
+
+{
+    "id": "dorin-test",
+    "result": {
+        "status": "idle",
+        "up_down_motor_counter": 759010,
+        "up_down_motor_speed": 0,
+        "in_out_motor_counter": 701310,
+        "in_out_motor_speed": 0
+    },
+    "jsonrpc": "2.0"
+}
+
+{
+    "id": "dorin-test",
+    "jsonrpc": "2.0",
+    "method": "move",
+    "params": {
+        "up_down_motor_counter": 719073,
+        "up_down_motor_speed": 25,
+        "in_out_motor_counter": 701310,
+        "in_out_motor_speed": 35,
+        "sync": true
+    }
+}
+
+----
+kinda middle
+{
+    "id": "dorin-test",
+    "result": {
+        "status": "idle",
+        "up_down_motor_counter": 601104,
+        "up_down_motor_speed": 0,
+        "in_out_motor_counter": 888622,
+        "in_out_motor_speed": 0
+    },
+    "jsonrpc": "2.0"
+}
+
+edege good fishes
+{
+    "id": "dorin-test",
+    "jsonrpc": "2.0",
+    "method": "move",
+    "params": {
+        "up_down_motor_counter": 168705,
+        "up_down_motor_speed": 25,
+        "in_out_motor_counter": 178157,
+        "in_out_motor_speed": 45,
+        "sync": true
+    }
+}
+
+-----------
+

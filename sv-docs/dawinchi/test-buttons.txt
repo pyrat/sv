@@ -1,0 +1,21 @@
+raspi-gpio set 15 ip pd && sleep 1 && raspi-gpio set 17 ip pd && sleep 2 && raspi-gpio set 15 ip pu && raspi-gpio set 17 ip pu
+
+raspi-gpio set 6 ip pd && sleep 0.3 && raspi-gpio set 17 ip pd && sleep 12 && raspi-gpio set 6 ip pu && raspi-gpio set 17 ip pu
+
+raspi-gpio set 14 ip pd && sleep 1 && raspi-gpio set 15 ip pd && sleep 2 && raspi-gpio set 14 ip pu && raspi-gpio set 15 ip pu
+
+# precision mode
+raspi-gpio set 14 ip pd && raspi-gpio set 15 ip pd && sleep 7 && raspi-gpio set 14 ip pu && raspi-gpio set 15 ip pu
+
+# service mode
+raspi-gpio set 14 ip pd && raspi-gpio set 15 ip pd && raspi-gpio set 17 ip pd && \
+sleep 12 && raspi-gpio set 14 ip pu && raspi-gpio set 15 ip pu && raspi-gpio set 17 ip pu
+
+
+# down + in
+raspi-gpio set 15 ip pd && sleep 1 && \
+raspi-gpio set 16 ip pd && sleep 5 && \
+raspi-gpio set 15 ip pu && raspi-gpio set 16 ip pu
+
+# home
+raspi-gpio set 6 ip pd && sleep 1 && raspi-gpio set 6 ip pu
