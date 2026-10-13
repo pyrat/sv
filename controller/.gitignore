@@ -1,0 +1,5 @@
+/depthpilot
+/depthpilot-web
+/config.local.json
+/.depthpilot*-home.json
+/.depthpilot*.activity.sqlite*

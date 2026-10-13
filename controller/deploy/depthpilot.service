@@ -1,0 +1,22 @@
+[Unit]
+Description=DepthPilot control station
+After=network.target
+
+[Service]
+Type=simple
+User=depthpilot
+Group=depthpilot
+SupplementaryGroups=dialout
+WorkingDirectory=/opt/depthpilot/controller
+# Starts hardware-free. For commissioned hardware, replace -simulate with
+# -simulate=false -config /etc/depthpilot/config.json, and use home.json as
+# the -state file instead of simulator-home.json.
+StateDirectory=depthpilot
+ExecStart=/opt/depthpilot/controller/depthpilot-web -listen :8080 -simulate -state /var/lib/depthpilot/simulator-home.json -web /opt/depthpilot/web/dist
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

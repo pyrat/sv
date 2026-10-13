@@ -4,14 +4,36 @@ Source snapshots, hardware documentation, and development notes for smart-winch 
 
 ## Repository status
 
-This checkout is a reference archive rather than a complete, deployable firmware project. Most material lives under `sv-docs/`. The standalone `dawinchi/wiggle` utility has a Go module; the archived firmware and motor experiment reference internal packages that are absent here.
+The new [DepthPilot controller](controller/README.md) provides a buildable Go motor-control library and CLI for the CS2RS-D507 over USB/RS485. Historical reference material lives under `sv-docs/`. The standalone `dawinchi/wiggle` utility has a Go module; the archived firmware and motor experiment reference internal packages that are absent here.
 
 The [historical daWinchi README](sv-docs/dawinchi/old-repo/dawinchi/README.md) contains an unfinished application template and references Vue/Express components that are not included in this checkout.
+
+## Try the new control station
+
+With **npm/npx** and **Go** installed, run from the
+repository root:
+
+```sh
+make sim
+```
+
+Open **http://127.0.0.1:8080** (or run `make open` in another terminal).
+This installs dependencies, builds the app, and starts two simulated axes with
+no winch attached. Press **Ctrl+C** to stop. Use `make sim PORT=8081` if port 8080
+is occupied, and `make help` for build/test commands.
+
+If your shell has an older Node, the Makefile automatically uses an isolated,
+cached Node 22/npm 10 toolchain. Go also selects the module's recommended
+toolchain automatically. First-time toolchain downloads require internet access.
+
+See the [control station guide](web/README.md) for LAN access and Jetson deployment.
 
 ## Repository map
 
 | Path | Contents |
 | --- | --- |
+| [`web/`](web/README.md) | React/TypeScript control dashboard, live X/Y telemetry, target moves and jogging, simulator environment, and Playwright browser tests. |
+| [`controller/`](controller/README.md) | Go CS2RS driver library/CLI plus the Jetson web/API service and two-axis simulator. |
 | [`sv-docs/dawinchi/wiggle/`](sv-docs/dawinchi/wiggle/) | Go WebSocket client that repeatedly moves the winch vertically and reports errors to Slack. Includes `go.mod`, `go.sum`, and a prebuilt executable. |
 | [`sv-docs/dawinchi/CCP/lib/`](sv-docs/dawinchi/CCP/lib/) | CircuitPython libraries for WIZnet Ethernet and an INA226 current sensor. No CCP application entry point is included. |
 | [`sv-docs/dawinchi/panel-buttons-test.py`](sv-docs/dawinchi/panel-buttons-test.py) | Raspberry Pi GPIO button-state monitor. |
