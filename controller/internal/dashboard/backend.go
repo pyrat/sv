@@ -61,6 +61,15 @@ type hardware struct {
 }
 
 func newHardware(c AxisConfig) (motor, error) {
+	// Resolve the model before opening a serial port. Never send CS2RS commands
+	// to a CL57PR: the supplier's linked register manuals are inconsistent.
+	switch c.Driver {
+	case "", "cs2rs-d507": // Empty preserves existing CS2RS configurations.
+	case "cl57pr":
+		return nil, fmt.Errorf("CL57PR hardware control awaits a confirmed CL57PR register map")
+	default:
+		return nil, fmt.Errorf("unknown driver %q", c.Driver)
+	}
 	if c.Port == "" || c.Slave < 1 || c.Slave > 127 || c.Baud <= 0 {
 		return nil, fmt.Errorf("port, slave 1..127 and baud required")
 	}

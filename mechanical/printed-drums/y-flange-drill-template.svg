@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="210mm" viewBox="0 0 210 210">
+<g fill="none" stroke="black" stroke-width="0.2">
+<circle cx="105.0" cy="105.0" r="100.0"/>
+<circle cx="105.0" cy="105.0" r="7.5"/>
+<circle cx="146.0" cy="105.0" r="2.25"/>
+<circle cx="125.5" cy="140.50704155516198" r="2.25"/>
+<circle cx="84.5" cy="140.507041555162" r="2.25"/>
+<circle cx="64.0" cy="105.0" r="2.25"/>
+<circle cx="84.49999999999999" cy="69.49295844483802" r="2.25"/>
+<circle cx="125.5" cy="69.49295844483802" r="2.25"/>
+</g>
+<text x="10" y="15" font-size="4">Y: six 4.5 mm holes, PCD 82 mm</text>
+<path d="M 10 200 h 50" stroke="black"/>
+<text x="10" y="197" font-size="4">50 mm scale check</text>
+</svg>

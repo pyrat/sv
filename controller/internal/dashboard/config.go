@@ -6,6 +6,7 @@ import (
 )
 
 type AxisConfig struct {
+	Driver                 string  `json:"driver,omitempty"`
 	Port                   string  `json:"port"`
 	Slave                  byte    `json:"slave"`
 	Baud                   int     `json:"baud"`
@@ -23,6 +24,11 @@ type AxisConfig struct {
 
 func finite(v float64) bool { return !math.IsNaN(v) && !math.IsInf(v, 0) }
 func (c AxisConfig) validate() error {
+	switch c.Driver {
+	case "", "cs2rs-d507", "cl57pr":
+	default:
+		return fmt.Errorf("unknown driver %q", c.Driver)
+	}
 	for _, v := range []float64{c.PulsesPerMetre, c.FeedbackCountsPerMetre, c.PulsesPerRevolution, c.Min, c.Max, c.MaxSpeed} {
 		if !finite(v) {
 			return fmt.Errorf("calibration must be finite")

@@ -1,5 +1,6 @@
 {
   "x": {
+    "driver": "cl57pr",
     "port": "/dev/serial/by-id/REPLACE-WITH-AXIS-X-ADAPTER",
     "slave": 1,
     "baud": 38400,
@@ -12,6 +13,22 @@
     "direction": 1,
     "ramp_ms_per_1000rpm": 1000,
     "reference_valid": false,
-    "reference_id": "replace-with-established-reference-id"
+    "reference_id": "replace-with-established-x-reference-id"
+  },
+  "y": {
+    "driver": "cs2rs-d507",
+    "port": "/dev/serial/by-id/REPLACE-WITH-AXIS-Y-ADAPTER",
+    "slave": 1,
+    "baud": 38400,
+    "pulses_per_metre": 53000,
+    "feedback_counts_per_metre": 132500,
+    "pulses_per_revolution": 1600,
+    "min_m": 0,
+    "max_m": 10,
+    "max_speed_mps": 0.2,
+    "direction": 1,
+    "ramp_ms_per_1000rpm": 1000,
+    "reference_valid": false,
+    "reference_id": "replace-with-established-y-reference-id"
   }
 }

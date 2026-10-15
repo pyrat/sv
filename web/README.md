@@ -201,8 +201,11 @@ sudo systemctl enable --now depthpilot
 Copy [`config.example.json`](../controller/config.example.json) to
 `controller/config.local.json`. Its numeric values are **demo placeholders**,
 and `reference_valid` is false. Replace them with measured calibration before
-enabling that axis. An omitted Y axis is displayed as unconfigured; no second
-motor or adapter is assumed.
+enabling that axis. The example selects CL57PR for X (rope loop/pulley) and
+CS2RS-D507 for Y (storage drum). **CL57PR hardware control is pending a confirmed
+register manual**; enabling its hardware axis currently rejects service startup. See the
+[controller documentation](../controller/README.md#prototype-axis-selection).
+An omitted axis is displayed as unconfigured.
 
 ```sh
 ./depthpilot-web -listen :8080 -simulate=false -config config.local.json -web ../web/dist
@@ -212,6 +215,7 @@ Each axis needs:
 
 | Field | Meaning |
 | --- | --- |
+| `driver` | `cs2rs-d507` (also the default if omitted), or `cl57pr` (hardware implementation pending) |
 | `port`, `slave`, `baud` | Dedicated USB/RS485 channel, slave 1–127, matching baud; 8N1 |
 | `pulses_per_metre` | Command-pulse calibration used for absolute move targets |
 | `feedback_counts_per_metre` | Separate actual-position feedback calibration |

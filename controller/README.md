@@ -14,6 +14,32 @@ home destinations, raw-counter diagnostics and a counter-based home editor. Each
 stage waits for completion/arrival before the next axis starts. The single-drive
 CLI remains a low-level operation and does not run these two-axis sequences.
 
+## Prototype axis selection
+
+The prototype uses **STEPPERONLINE CL57PR on X** (a continuous rope loop
+driven by a fixed-diameter pulley) and **Leadshine CS2RS-D507 on Y** (rope
+payout from a storage drum). `config.example.json` records this arrangement
+using the per-axis `driver` field. Omitted `driver` retains the existing
+CS2RS-D507 behaviour; unknown model names are rejected.
+
+**CL57PR hardware control is pending its confirmed programming/register manual.**
+With `reference_valid: false`, the axis remains unconfigured. Attempting to
+enable `cl57pr` hardware rejects service startup before opening its serial port.
+The [CL57PR hardware manual](https://www.omc-stepperonline.com/download/CL57PR_bus_stepper_driver_manual_V1.0.pdf)
+confirms Modbus RTU, but section 4.2.3 names I/O registers `0x2310–0x2325`.
+The supplier-linked
+[function manual](https://files.omc-stepperonline.com/Modbus-Series-Bus-Product-Function-Manual-V1.0_1.pdf)
+instead names `0x0041–0x0047` and lists ESS-RS/DM-PR models, not CL57PR, in
+its applicability table. Its motion commands cannot yet be treated as a
+verified CL57PR implementation. The direct CLI below remains CS2RS-only.
+
+Each axis has independent command and feedback calibration. For X, derive
+metres per motor revolution from the pulley pitch circumference and gearing,
+then measure actual travel. Y currently uses a constant conversion; multilayer
+rope winding needs a measured nonlinear model for accurate full-range payout.
+All numeric values in the example are placeholders, including X serial settings
+and calibration, and both references start invalid.
+
 ## Build and use
 
 ```sh
@@ -72,7 +98,7 @@ aliases the trigger and is excluded from path programming. Position mode is
 No homing command is exposed because the drawing has no selected home input.
 
 The older Pico/CL57T prototype plan predates this wiring. The BOM also contains
-CL57RS/CL57PR alternatives; this register map is specifically for CS2RS.
+CL57RS/CL57PR parts; the implemented register map is specifically for CS2RS.
 The drawing names a Waveshare adapter while the BOM lists FIT0737; either
 requires the correct Linux serial device and RS485 wiring. Tests use a fake
 register transport; physical motion/brake behaviour still requires bench testing.
