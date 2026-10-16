@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1180" viewBox="0 0 1500 1180">
+<defs>
+ <style>text{font-family:Arial,sans-serif;fill:#e2e8f0}.title{font-size:32px;font-weight:700}.head{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:13px;fill:#a8b7cb}.box{fill:#172338;stroke:#3b506b;stroke-width:1.5}.power{fill:none;stroke:#fb923c;stroke-width:3}.aux{fill:none;stroke:#facc15;stroke-width:3}.jet{fill:none;stroke:#4ade80;stroke-width:3}.data{fill:none;stroke:#60a5fa;stroke-width:3}.feedback{fill:none;stroke:#c084fc;stroke-width:3}.earth{fill:none;stroke:#2dd4bf;stroke-width:3;stroke-dasharray:7 5}</style>
+</defs>
+<rect width="1500" height="1180" fill="#0b1220"/>
+<text x="50" y="57" class="title">DepthPilot / Prototype wiring</text>
+<text x="50" y="87" class="body">One driver · one connected motor at a time · shared 48 V power supply</text>
+<rect x="1110" y="30" width="340" height="57" rx="12" fill="#352b19"/>
+<text x="1130" y="55" class="head" fill="#facc15">FUNCTIONAL CONNECTION DIAGRAM</text>
+<text x="1130" y="75" class="small">Not a terminal-by-terminal assembly drawing</text>
+
+<path d="M55 120h35" class="power"/><text x="100" y="125" class="small">48 V DC</text>
+<path d="M225 120h35" class="aux"/><text x="270" y="125" class="small">24 V / brake circuit</text>
+<path d="M455 120h35" class="jet"/><text x="500" y="125" class="small">12 V DC</text>
+<path d="M620 120h35" class="data"/><text x="665" y="125" class="small">USB / RS485</text>
+<path d="M810 120h35" class="feedback"/><text x="855" y="125" class="small">Encoder</text>
+<path d="M1010 120h35" class="earth"/><text x="1055" y="125" class="small">Protective earth</text>
+
+<rect x="35" y="155" width="1430" height="220" rx="18" fill="#101c2c"/>
+<text x="55" y="183" class="small">MAINS INPUT — covered terminals, strain relief and accessible plug</text>
+<rect x="60" y="205" width="235" height="105" rx="12" class="box"/>
+<text x="80" y="237" class="head">230 V mains plug</text>
+<text x="80" y="264" class="body">Suitable three-core cable</text>
+<text x="80" y="288" class="small">Unplug before changing wiring</text>
+<path d="M295 250H350" stroke="#cbd5e1" stroke-width="3"/>
+<rect x="350" y="205" width="365" height="105" rx="12" class="box"/>
+<text x="370" y="237" class="head">Mains input protection — confirm</text>
+<text x="370" y="264" class="body">Proposed DIN holder + T5A fuse</text>
+<text x="370" y="288" class="small">Pole arrangement depends on mains system</text>
+<path d="M715 250H790" stroke="#cbd5e1" stroke-width="3"/>
+<text x="734" y="235" class="small">AC</text>
+<rect x="790" y="205" width="375" height="105" rx="12" class="box"/>
+<text x="810" y="237" class="head">Mean Well NDR-240-48</text>
+<text x="810" y="264" class="body">230 V AC → 48 V DC · 5 A / 240 W</text>
+<text x="810" y="288" class="small">V+ and V− feed the DC distribution</text>
+<path d="M178 310V342H975V310" class="earth"/>
+<path d="M975 342H1370" class="earth"/>
+<text x="390" y="335" class="small">PE bypasses all fuses/switches</text>
+<text x="1150" y="335" class="small">Bond chassis as required</text>
+<path d="M1165 250H1420V412H90" class="power"/>
+<text x="60" y="400" class="body">48 V DISTRIBUTION / V+ AND V− PAIR</text>
+<text x="690" y="400" class="small">Each coloured power line below represents both supply and return conductors.</text>
+
+<path d="M255 412V455" class="power"/><path d="M735 412V455" class="power"/><path d="M1230 412V455" class="power"/>
+<rect x="65" y="455" width="380" height="115" rx="12" class="box"/>
+<text x="85" y="487" class="head">DDR-60L-12 / Jetson converter</text>
+<text x="85" y="514" class="body">18–75 V input → 12 V, 5 A / 60 W</text>
+<text x="85" y="542" class="small">Isolated output · regulated 12 V</text>
+<rect x="530" y="455" width="400" height="160" rx="12" class="box"/>
+<text x="550" y="487" class="head">Leadshine CS2RS-D507</text>
+<text x="550" y="514" class="body">Driver power input: V+ / V−</text>
+<text x="550" y="542" class="body">RS485 · encoder · motor phases · I/O</text>
+<text x="550" y="570" class="small">Configure one output as BRAKE CONTROL</text>
+<text x="550" y="592" class="small">Drive has a 50 V maximum supply rating</text>
+<rect x="1040" y="455" width="380" height="115" rx="12" class="box"/>
+<text x="1060" y="487" class="head">DDR-15L-24 / Brake converter</text>
+<text x="1060" y="514" class="body">18–75 V input → 24 V, 0.63 A / 15 W</text>
+<text x="1060" y="542" class="small">24 V output supplies relay and brake</text>
+
+<path d="M255 570V630" class="jet"/>
+<text x="275" y="603" class="small">12 V → centre-positive DC input</text>
+<rect x="65" y="630" width="380" height="100" rx="12" class="box"/>
+<text x="85" y="662" class="head">Jetson Orin Nano developer kit</text>
+<text x="85" y="690" class="body">Linux control service · 28 W max reported</text>
+<text x="85" y="714" class="small">Confirm connector size and polarity</text>
+<path d="M255 730V770" class="data"/>
+<text x="275" y="754" class="small">USB data + adapter power</text>
+<rect x="65" y="770" width="380" height="110" rx="12" class="box"/>
+<text x="85" y="802" class="head">Waveshare USB TO 2CH RS485</text>
+<text x="85" y="830" class="body">Channel 1 → driver Modbus RS485</text>
+<text x="85" y="857" class="small">Channel 2 spare until a second driver is fitted</text>
+<path d="M445 805H490V555H530" class="data"/>
+<text x="455" y="754" class="small" transform="rotate(-90 455 754)">A/B pair + reference per manual; verify termination</text>
+
+<path d="M1230 570V650" class="aux"/>
+<rect x="1040" y="650" width="380" height="170" rx="12" class="box"/>
+<text x="1060" y="682" class="head">Phoenix relay K1 / 2966171</text>
+<text x="1060" y="710" class="body">Coil: 24 V through driver OC output</text>
+<text x="1060" y="736" class="body">COM → NO switches brake +24 V</text>
+<text x="1060" y="762" class="small">Energised = brake powered / released</text>
+<text x="1060" y="788" class="small">K2 is spare for the second independent axis</text>
+<path d="M930 585H985V700H1040" class="aux"/>
+<text x="952" y="640" class="small">OC output</text>
+<text x="952" y="660" class="small">see detail below</text>
+
+<rect x="530" y="720" width="400" height="170" rx="12" class="box"/>
+<text x="550" y="751" class="head">ONE connected motor assembly</text>
+<text x="550" y="781" class="body">STEPPERONLINE 23HS30…B280</text>
+<text x="550" y="805" class="body">OR Leadshine CS-M22323B</text>
+<text x="550" y="835" class="small">Motor windings + encoder + power-off brake</text>
+<text x="550" y="863" class="small">Gearbox → coupling → bearing-supported drum</text>
+<path d="M645 615V720" class="power"/>
+<text x="548" y="648" class="small">A+, A−, B+, B−</text>
+<text x="550" y="669" class="small">motor phases</text>
+<path d="M835 720V615" class="feedback"/>
+<text x="850" y="645" class="small">Encoder</text>
+<text x="850" y="666" class="small">5 V + A/B</text>
+<path d="M1230 820V866H930" class="aux"/>
+<text x="1000" y="850" class="small">Switched 24 V + return; suppressor across brake</text>
+
+<rect x="50" y="920" width="700" height="220" rx="14" fill="#15263a"/>
+<text x="70" y="950" class="head">Brake circuit detail / functional connections</text>
+<text x="70" y="980" class="body">Relay coil: +24 V → A1 ; A2 → driver brake-control output</text>
+<text x="70" y="1007" class="small">Complete output return to 24 V return per driver I/O diagram; confirm terminals.</text>
+<text x="70" y="1037" class="body">Brake power: +24 V → COM (11) → NO (14) → Brake +</text>
+<text x="70" y="1064" class="body">Brake − → 24 V return ; suppression directly across brake coil</text>
+<text x="70" y="1091" class="small">Flyback diode if approved: cathode/stripe to Brake +, anode to Brake −.</text>
+<text x="70" y="1116" class="small">Relay includes its own coil suppression. Check release/engagement delays.</text>
+<rect x="775" y="920" width="675" height="220" rx="14" fill="#30271d"/>
+<text x="795" y="950" class="head">Before commissioning</text>
+<text x="795" y="980" class="body">• Confirm mains protection for the local supply / reversible plug.</text>
+<text x="795" y="1007" class="body">• STEPPERONLINE encoder needs a signal-mapped harness.</text>
+<text x="795" y="1034" class="body">• 48 V bus regeneration / 50 V driver limit remains unresolved.</text>
+<text x="795" y="1061" class="body">• No DC branch fuses selected: coordinate wiring with current limits.</text>
+<text x="795" y="1088" class="body">• Power down before swapping motors. Never parallel both motors.</text>
+<text x="795" y="1115" class="body">• Loaded rig still needs travel limits and a defined stop/brake circuit.</text>
+<text x="50" y="1166" class="small">DepthPilot Proto1 · 9 October 2026 · Solid lines show functional connections, not cable routing or conductor count.</text>
+</svg>

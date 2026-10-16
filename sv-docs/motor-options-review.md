@@ -16,6 +16,74 @@ For a more fully specified industrial option, consider **Parvalux BRx70-40 / GB1
 
 The larger Dunkermotoren/Parvalux options remain below as full-performance comparisons. The lower-cost STEPPERONLINE options require additional feedback/brake integration. All suggestions assume the motor stays above water or inside a suitable dry enclosure; a submerged motor needs a separately specified underwater assembly.
 
+## Leadshine brake stepper + STEPPERONLINE gearbox (8 October 2026)
+
+The user proposed the [DamenCNC Leadshine CS-M22323B](https://www.damencnc.com/en/closed-loop-stepper-motor-with-brake-nema23-2-3nm-cs-m22323b-2phase/a5340). Its drawing specifies an 8 mm D-shaft projecting 21 ±1 mm, a 38.1 mm locating pilot, 47.14 mm square mounting-hole spacing, and a 57.15 mm NEMA23 frame. It has 2.3 Nm holding torque, 5 A phase current, a 1000-line encoder, and a 2 Nm power-off brake released with 24 V (4.5 W). Listed motor price is €140 excluding VAT; the recommended CS-D507E driver is listed at €80 excluding VAT.
+
+These separate gearboxes are plausible motor-side matches based on their published NEMA23 interface, 8 mm input and accepted shaft lengths. The user subsequently supplied the EG23-G20-D8 drawing A1783, revision 0, dated 3.8.2024. This confirms the principal motor-side dimensional match with CS-M22323B: Ø8 G6 input bore, accepted shaft projection 12–31 mm versus the motor's 21 ±1 mm, Ø38.1 H7 pilot recess versus the motor's Ø38.1 +0/−0.05 mm pilot, and 47.14 mm square mounting pattern. The gearbox has four M4 mounting threads, 10 mm deep; the motor has Ø5 mm through holes. The 4.5 mm pilot recess accommodates the motor's 1.6 mm pilot projection. No motor-side adapter or shaft shortening is indicated by these dimensions. Select mounting screw length to suit the motor flange and usable thread engagement without bottoming; confirm the input coupling's tightening instructions and suitability for the motor D-flat. The EG10 and MGL drawings have not been separately verified.
+
+The supplied EG20 drawing also confirms 200 N maximum axial load, 400 N maximum radial load, 3,000 rpm rated input speed and 6,000 rpm maximum input speed. The required approximately 840 rpm input is within the gearbox speed rating, but motor running torque remains to be verified. The drawing does not specify the load application distance or combined-load conditions for those bearing limits, so they do not by themselves validate an overhung drum installation.
+
+The user also supplied MGL23-G10-D8 drawing A4174, revision 0, dated 2.17.2025. Its principal motor interface matches: Ø8 +0.005/+0.015 mm input bore, 20–25 mm accepted shaft projection (motor 20–22 mm including tolerance), Ø38.1 +0.005/+0.03 mm locating recess, 47.14 mm square mounting pattern and four M4 threads 10 mm deep. Pilot recess depth is not explicitly dimensioned in this drawing; verify clearance for the motor's 1.6 mm pilot and follow the coupling instructions for the D-flat. No shaft shortening or adapter is indicated by the principal dimensions.
+
+MGL10 is a credible lower-cost prototype option if the measured duty stays comfortably below its 10 Nm permissible torque limit. At approximately 420 motor rpm it gives the desired approximately 42 drum rpm; with 90% efficiency, 8 Nm output requires approximately 0.89 Nm motor torque and 10 Nm requires approximately 1.11 Nm, before acceleration reserve. Verify these points against the motor/driver torque-speed curve. Its 20 Nm momentary rating does not support sustained 12 Nm operation. The drawing confirms 1,000 rpm rated / 2,000 rpm maximum input speed, 100 N axial / 300 N radial load limits, and 66.3 mm body length (23.2 mm shorter than EG20). At 46 mm winding radius, 8–10 Nm gives approximately 174–217 N ideal line pull; at 90 mm, approximately 89–111 N. Actual headroom depends on submerged camera/tether tension. The motor can potentially overtorque this gearbox at low speed, so configured torque/current limits matter. The output remains 14 mm keyed and requires adaptation to the archived 12 mm drum bore.
+
+| Gearbox | Ratio | Accepted input shaft length | Published permissible / momentary output torque | Efficiency | Observed USD price |
+|---|---:|---:|---:|---:|---:|
+| [EG23-G10-D8](https://www.omc-stepperonline.com/eg-series-planetary-gearbox-gear-ratio-10-1-backlash-15-arc-min-for-8mm-shaft-nema-23-stepper-motor-eg23-g10-d8) | 10:1 | 12–31 mm | 10 / 20 Nm | 94% | $34.09 |
+| [MGL23-G10-D8](https://www.omc-stepperonline.com/mgl-series-planetary-gearbox-gear-ratio-10-1-backlash-30arc-min-for-8mm-shaft-standard-nema-23-stepper-motor-mgl23-g10-d8) | 10:1 | 20–25 mm | 10 / 20 Nm | 90% | $19.65 |
+| [EG23-G20-D8](https://www.omc-stepperonline.com/eg-series-planetary-gearbox-gear-ratio-20-1-backlash-20-arc-min-for-8mm-shaft-nema-23-stepper-motor-eg23-g20-d8) | 20:1 | 12–31 mm | 30 / 60 Nm | 94% | $46.87 |
+
+For the provisional 10–12 Nm target, **EG23-G20-D8 is the preferred candidate to validate**: the 10:1 products have a 10 Nm permissible output limit, so their 20 Nm momentary figure does not establish suitability for sustained 12 Nm operation. EG uses alloy-steel gears; MGL uses powder-metallurgy gears. Published no-load backlash is 15 arcmin for EG10, 20 for EG20 and 30 for MGL10.
+
+At approximately 42 output rpm (0.20 m/s on the bare 92 mm barrel), 10:1 requires approximately 420 motor rpm and 20:1 approximately 840 rpm. Using the listed efficiencies, delivering 10 Nm through EG10 requires approximately 1.06 Nm running motor torque; delivering 12 Nm through EG20 requires approximately 0.64 Nm at 840 rpm. These exclude acceleration reserve. The 2.3 Nm holding rating does not prove either operating point. Obtain the CS-M22323B torque-speed curve for the selected driver, current and supply voltage; a 48 V driver supply is worth evaluating for high-speed torque, with separate 24 V brake release power. No suitable loaded torque-speed curve was verified in this review.
+
+All three have 14 mm keyed output shafts (35 mm projection on EG, 34 mm on MGL), so they do not directly fit the archived 12 mm drum bore. A separately supported drum shaft and suitable coupling is a practical integration route. Check output bearing loads and overhang if supporting the drum from the gearbox. Gearbox IP54 is not an underwater rating.
+
+The existing brushed H-bridges must be replaced by a compatible closed-loop stepper driver and step/direction control. Configure torque/current limits to respect the gearbox, and sequence brake release/engagement with motor holding torque. Do not treat the brake's torque multiplied by the reduction as an unrestricted output holding rating: gearbox static limits also apply. Motor encoder feedback does not measure gearbox backlash or changing drum radius.
+
+## Leadshine PLF060-10-P2-BJ-8-38.1 follow-up
+
+**User quotation:** €190 excluding VAT for the exact -8-38.1 variant. At this price, no verified application benefit justifies prioritising it over the STEPPERONLINE candidates. Deprioritise Leadshine PLF for this camera winch: favour EG23-G20-D8 for the provisional 10–12 Nm target, or MGL23-G10-D8 for a lower-cost prototype with measured duty comfortably below 10 Nm. Motor running torque at the selected speed still requires verification. STEPPERONLINE prices below are observed USD listings before shipping/taxes, not landed-cost quotations.
+
+The exact model appears in [Ocean Controls' Leadshine model list](https://oceancontrols.com.au/images/content/MOG-001_Models.jpg), described as **10:1, for NEMA23 (57 mm) stepper motors with an 8 mm shaft**. [Leadshine's official PLF page](https://www.leadshine.com/products/other-product/gearboxes/plf-series.html) confirms straight-tooth planetary gearboxes for NEMA23/24/34 motors, but did not expose a detailed model datasheet. The exact -38.1 drawing, torque rating and current price were not verified.
+
+Important variant distinction: [Ocean Controls MOG-001](https://oceancontrols.com.au/MOG-001.html) currently sells **PLF060-10-P2-BJ-8-36**, for NEMA24. Its [Leadshine-branded datasheet](https://oceancontrols.com.au/files/datasheet/lea/MOG-001.pdf) specifies a 36 mm pilot and a 70.7 mm mounting bolt-circle diameter (approximately 50 mm square), which do not match CS-M22323B's 38.1 mm pilot and 47.14 mm square pattern. Do not substitute this version for -38.1.
+
+For reference only, the **-36 sibling's** sheet lists 96% full-load efficiency, ≤12 arcmin backlash, 3,000/6,000 rpm rated/maximum input speed, 485/380 N maximum radial/axial output load, IP65, 1.0 kg, 14 mm keyed output and 20,000 h average life. It prints **85 Nm nominal / 170 Nm emergency-stop torque**. These are not verified ratings for the requested -38.1. The nominal torque is unusually high compared with the other 60 mm units reviewed and needs explicit manufacturer confirmation; no corrected value is assumed. Other suppliers use PLF060 for different gearboxes, so their 16 Nm or 25 Nm specifications cannot establish this Leadshine model's rating either.
+
+Comparison: MGL10 has 10 Nm permissible / 20 Nm momentary torque, 90% efficiency and ≤30 arcmin backlash; EG10 has 10/20 Nm, 94% and ≤15 arcmin; EG20 has 30/60 Nm, 94% and ≤20 arcmin. Leadshine's exact model offers the same 10:1 ratio as MGL10/EG10, requiring approximately 420 motor rpm for the target line speed. If the sibling's 96% efficiency also applies, 12 Nm output requires approximately 1.25 Nm motor torque at that speed, plus acceleration reserve. EG20 needs approximately 0.64 Nm at 840 rpm instead. Compare both points on the actual motor curve rather than assuming one ratio is inherently better.
+
+Procurement conclusion: the Leadshine -38.1 is a credible NEMA23 candidate, but cannot yet be ranked above EG20 for torque capacity. Request its exact drawing (including accepted shaft length and pilot depth), continuous and transient torque ratings, confirmed CS-M22323B compatibility, price and lead time. MGL remains the lowest-cost candidate for a duty comfortably below 10 Nm; EG20 remains the better-documented candidate for the provisional 10–12 Nm target. IP65, if confirmed for the requested variant, is better dust/water-jet protection than IP54 but is not a submersion rating.
+
+## STEPPERONLINE motor replacement with CS2RS-D507 Modbus drive
+
+The closest verified catalogue candidate retaining both encoder and power-off brake is [23HS30-5004D-E1000-B280](https://www.omc-stepperonline.com/s-series-nema-23-closed-loop-stepper-motor-2-0nm-283-28oz-in-with-2-8nm-396-51oz-in-electromagnetic-brake-23hs30-5004d-e1000-b280), observed at **US$68.10** before shipping/taxes. It is a plausible cross-brand integration, not a supplier-confirmed plug-and-play replacement.
+
+| Specification | CS-M22323B | 23HS30-5004D-E1000-B280 |
+|---|---:|---:|
+| Holding torque | 2.3 Nm | 2.0 Nm |
+| Phase current | 5 A | 5 A |
+| Phase resistance | 0.4 Ω | 0.42 Ω |
+| Phase inductance | 1.7 mH | 1.7 mH |
+| Motor | 2-phase, 1.8°, NEMA23 | 2-phase, 1.8°, NEMA23 |
+| Shaft diameter / projection | 8 / 21 mm | 8 / 21 mm |
+| Encoder | 1,000 lines, differential | 1,000 PPR / 4,000 CPR, differential A/B |
+| Brake holding torque | 2 Nm | 2.8 Nm |
+| Brake release | 24 V, 4.5 W | 24 V, 3.72 W / 0.155 A listed |
+| Body length including rear accessories | approximately 137.5 mm from drawing | 136.5 mm listed |
+| Weight | 1.65 kg | 1.61 kg |
+
+The replacement's NEMA23 designation and shaft dimensions match the EG23-G20-D8 and MGL23-G10-D8 input requirements. Its exact pilot/bolt pattern drawing still needs verification; the PDF download was blocked. The product links a torque curve, but its image was not successfully inspected, so no running torque is asserted at 420/840 rpm. Similar resistance/inductance and a 13% lower holding torque make it a credible comparison candidate, not proof of equal dynamic performance.
+
+[Leadshine CS2RS manual](https://www.leadshine.com/upfiles/downloads/19d35f99f92b99e0417f74134a985aff_1669716112793.pdf) confirms the D507's 20–50 VDC supply, 7 A peak current, incremental encoder support and +5 V encoder supply. Its CN6 mapping is VCC=5, GND=6, EB+=9, EB−=10, EA+=11, EA−=12; Z+/Z− at 7/8 are optional. The STEPPERONLINE motor page lists encoder pins VCC=2, GND=3, EA+=1, EA−=13, EB+=11, EB−=12. These are different connectors/pin assignments: make a signal-mapped harness, not an assumed straight-through cable. Check connector orientation and current production drawings before wiring. The motor listing's encoder logic-low voltage appears inconsistent (4.2–4.3 V); obtain a corrected electrical specification rather than relying on that field.
+
+Driver Pr7.01 (register 0x0233) uses quadrature counts: **4,000 CPR** for this 1,000 PPR encoder. Configure phase current and tune the motor; D507's 7 A rating is peak, not RMS. Pr5.00 is peak current in 0.1 A units, and the manual advises approximately 1.2–1.4 times motor phase current. Confirm current convention with the motor supplier. Verify encoder polarity/phase relationship before loaded operation.
+
+The CS2RS digital outputs are rated 100 mA at 24 V (50 mA recommended), so the 155 mA brake must use an external relay or suitably rated transistor stage with appropriate suppression. The manual supports configurable brake output (0x24) and release/engagement delays Pr4.19/Pr4.20. The original Leadshine brake also exceeds that direct-output current limit. Modbus commands remain a driver function; replacing a compatible bare motor does not require it to implement Modbus.
+
+Recommendation: evaluate **23HS30-5004D-E1000-B280 + CS2RS-D507 + EG23-G20-D8**, verifying at least approximately 0.64 Nm motor running torque at 840 rpm plus acceleration margin for the provisional 12 Nm drum target. An MGL10 option instead needs approximately 0.89 Nm at 420 rpm for 8 Nm output and remains subject to its 10 Nm gearbox limit. The 1.2 Nm 23HS22-4004D-E1000-B280 is a smaller encoder/brake alternative but not the preferred headroom choice. Encoder-only motors and brake-only motors do not replace the complete CS-M22323B feature set.
+
 ## Smaller-motor shortlist for the camera
 
 ### A. Twirl PG52ZY52 with brake and encoder — first supplier enquiry
