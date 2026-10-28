@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "servers": {
+      "bombuilds": {
+        "type": "remote",
+        "url": "https://app.bombuilds.com/mcp",
+	"oauth": false,
+	"headers": {
+		"Authorization": "Bearer {env:BOMBUILDS_API_TOKEN}"
+	}
+      }
+    }
+  }
+}
