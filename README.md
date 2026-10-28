@@ -27,6 +27,8 @@ cached Node 22/npm 10 toolchain. Go also selects the module's recommended
 toolchain automatically. First-time toolchain downloads require internet access.
 
 See the [control station guide](web/README.md) for LAN access and Jetson deployment.
+See the [controller brake configuration and Phoenix relay wiring](sv-docs/depthpilot-brake-configuration.md)
+for the verified RS485 settings, saved DO1 assignment and terminal connections.
 
 ## Repository map
 

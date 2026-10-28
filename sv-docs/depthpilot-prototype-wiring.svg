@@ -50,7 +50,7 @@
 <text x="550" y="487" class="head">Leadshine CS2RS-D507</text>
 <text x="550" y="514" class="body">Driver power input: V+ / V−</text>
 <text x="550" y="542" class="body">RS485 · encoder · motor phases · I/O</text>
-<text x="550" y="570" class="small">Configure one output as BRAKE CONTROL</text>
+<text x="550" y="570" class="small">DO1 = Brake Control (Pr4.11 = 0x24)</text>
 <text x="550" y="592" class="small">Drive has a 50 V maximum supply rating</text>
 <rect x="1040" y="455" width="380" height="115" rx="12" class="box"/>
 <text x="1060" y="487" class="head">DDR-15L-24 / Brake converter</text>
@@ -100,8 +100,8 @@
 
 <rect x="50" y="920" width="700" height="220" rx="14" fill="#15263a"/>
 <text x="70" y="950" class="head">Brake circuit detail / functional connections</text>
-<text x="70" y="980" class="body">Relay coil: +24 V → A1 ; A2 → driver brake-control output</text>
-<text x="70" y="1007" class="small">Complete output return to 24 V return per driver I/O diagram; confirm terminals.</text>
+<text x="70" y="980" class="body">Relay coil: +24 V → A1+ ; A2− → driver DO1</text>
+<text x="70" y="1007" class="small">Driver COMO → 24 V return (0 V). Phoenix COM below gets +24 V.</text>
 <text x="70" y="1037" class="body">Brake power: +24 V → COM (11) → NO (14) → Brake +</text>
 <text x="70" y="1064" class="body">Brake − → 24 V return ; suppression directly across brake coil</text>
 <text x="70" y="1091" class="small">Flyback diode if approved: cathode/stripe to Brake +, anode to Brake −.</text>
