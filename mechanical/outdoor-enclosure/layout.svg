@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="780" viewBox="0 0 1100 780">
+<style>text{font-family:Arial;font-size:15px} .title{font-size:24px;font-weight:bold}</style>
+<rect width="1100" height="780" fill="white"/>
+<text x="30" y="35" class="title">DepthPilot outdoor enclosure development — four sealed cells</text>
+<text x="30" y="65">Bodies 230 × 230 × 220 mm; lids 238 × 238 mm; no open ventilation slots</text>
+<rect x="30" y="110" width="230" height="230" fill="#edf1f5" stroke="#333"/>
+<rect x="44" y="124" width="202" height="202" fill="none" stroke="#19a67b" stroke-width="4"/>
+<text x="48" y="220">Motor / driver A</text>
+<text x="48" y="245">Independent sealed volume</text>
+<rect x="290" y="110" width="230" height="230" fill="#edf1f5" stroke="#333"/>
+<rect x="304" y="124" width="202" height="202" fill="none" stroke="#19a67b" stroke-width="4"/>
+<text x="308" y="220">Motor / driver B</text>
+<text x="308" y="245">Independent sealed volume</text>
+<rect x="30" y="370" width="230" height="230" fill="#edf1f5" stroke="#333"/>
+<rect x="44" y="384" width="202" height="202" fill="none" stroke="#19a67b" stroke-width="4"/>
+<text x="48" y="480">Jetson + 12 V converter</text>
+<text x="48" y="505">Independent sealed volume</text>
+<rect x="290" y="370" width="230" height="230" fill="#edf1f5" stroke="#333"/>
+<rect x="304" y="384" width="202" height="202" fill="none" stroke="#19a67b" stroke-width="4"/>
+<text x="308" y="480">48 V PSU + 24 V / relays</text>
+<text x="308" y="505">Independent sealed volume</text>
+<text x="30" y="100">FRONT: external drums; shaft cartridges still to be engineered</text>
+<text x="570" y="125" class="title">Static seal section (not to scale)</text>
+<rect x="600" y="160" width="400" height="35" fill="#b4c3d2"/>
+<path d="M600 195H720V225H820V195H1000V270H600Z" fill="#96a5b9" stroke="#333"/>
+<rect x="732" y="195" width="76" height="30" fill="#19a67b"/>
+<text x="600" y="300">4 mm groove width × 2 mm deep</text>
+<text x="600" y="325">TPU: 2.8 mm wide × 2.4 mm free height</text>
+<text x="600" y="350">16.7% nominal squeeze; rigid lands limit travel</text>
+<text x="600" y="390">Continuous loop for every lid and interface</text>
+<text x="600" y="415">Blind insert pockets outside seal perimeter</text>
+<text x="600" y="440">Solid lids with 10 mm overlapping rain skirts</text>
+<text x="600" y="485">Orange interfaces in GLB are leak-test blanks.</text>
+<text x="600" y="510">Replace with engineered shaft / thermal plates.</text>
+<text x="600" y="535">External sealed cable links use selected glands.</text>
+<text x="30" y="650">Body assembly: 490 × 490 mm. Lids: 498 × 498 mm. Max closed height 226 mm; excludes drums and hardware.</text>
+<text x="30" y="680">Design intent: sustained rain/splash. No claimed IP rating. Validate seals, printed walls and cooling before service.</text>
+<text x="30" y="710">Print the small seal-test kit first. Confirm TPU hardness and saltwater exposure before finalising materials.</text>
+</svg>

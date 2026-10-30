@@ -1,0 +1,151 @@
+{
+  "parts": {
+    "winch-base": {
+      "quantity": 1,
+      "material": "rigid",
+      "bounds_mm": [
+        230.0,
+        230.0,
+        180.0
+      ],
+      "volume_cm3": 1624.52
+    },
+    "winch-riser": {
+      "quantity": 1,
+      "material": "rigid",
+      "bounds_mm": [
+        230.0,
+        230.0,
+        160.0
+      ],
+      "volume_cm3": 1275.83
+    },
+    "power-compute-base": {
+      "quantity": 1,
+      "material": "rigid",
+      "bounds_mm": [
+        230.0,
+        230.0,
+        180.0
+      ],
+      "volume_cm3": 1608.9
+    },
+    "power-compute-riser": {
+      "quantity": 1,
+      "material": "rigid",
+      "bounds_mm": [
+        230.0,
+        230.0,
+        200.0
+      ],
+      "volume_cm3": 1500.95
+    },
+    "rain-skirt-lid": {
+      "quantity": 2,
+      "material": "rigid",
+      "bounds_mm": [
+        238.0,
+        238.0,
+        16.0
+      ],
+      "volume_cm3": 371.93
+    },
+    "body-and-lid-gasket-tpu": {
+      "quantity": 4,
+      "material": "TPU",
+      "bounds_mm": [
+        200.8,
+        200.8,
+        2.4
+      ],
+      "volume_cm3": 5.32
+    },
+    "shaft-interface-blank": {
+      "quantity": 2,
+      "material": "rigid",
+      "bounds_mm": [
+        104.0,
+        104.0,
+        6.0
+      ],
+      "volume_cm3": 64.13
+    },
+    "shaft-interface-gasket-tpu": {
+      "quantity": 2,
+      "material": "TPU",
+      "bounds_mm": [
+        80.8,
+        80.8,
+        2.4
+      ],
+      "volume_cm3": 2.1
+    },
+    "thermal-interface-blank": {
+      "quantity": 3,
+      "material": "rigid",
+      "bounds_mm": [
+        136.0,
+        136.0,
+        6.0
+      ],
+      "volume_cm3": 110.21
+    },
+    "thermal-interface-gasket-tpu": {
+      "quantity": 3,
+      "material": "TPU",
+      "bounds_mm": [
+        114.8,
+        114.8,
+        2.4
+      ],
+      "volume_cm3": 3.01
+    },
+    "hybrid-interface-blank": {
+      "quantity": 2,
+      "material": "rigid",
+      "bounds_mm": [
+        76.0,
+        76.0,
+        6.0
+      ],
+      "volume_cm3": 33.89
+    },
+    "hybrid-interface-gasket-tpu": {
+      "quantity": 2,
+      "material": "TPU",
+      "bounds_mm": [
+        54.8,
+        54.8,
+        2.4
+      ],
+      "volume_cm3": 1.4
+    },
+    "equipment-mounting-blank": {
+      "quantity": 2,
+      "material": "rigid",
+      "bounds_mm": [
+        150.0,
+        150.0,
+        4.0
+      ],
+      "volume_cm3": 90.0
+    }
+  },
+  "checks": [
+    "connected watertight positive-volume print meshes",
+    "exported STL reload",
+    "all print extents <=240 mm",
+    "assembly part non-interference",
+    "component envelope non-interference",
+    "main gasket groove fit",
+    "join screw tool paths",
+    "selected driver and PSU spatial clearances"
+  ],
+  "not_validated": [
+    "shaft cartridge/hub stack",
+    "component mounting and cable bends",
+    "thermal performance",
+    "physical water sealing",
+    "hybrid connector selection"
+  ]
+}
