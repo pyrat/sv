@@ -1,0 +1,343 @@
+{
+  "parts": {
+    "winch-base": {
+      "quantity": 1,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        230.0,
+        230.0,
+        180.0
+      ]
+    },
+    "hinged-hood": {
+      "quantity": 1,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        230.0,
+        230.0,
+        210.0
+      ]
+    },
+    "roof": {
+      "quantity": 1,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        238.0,
+        238.0,
+        16.0
+      ]
+    },
+    "main-gasket-tpu": {
+      "quantity": 2,
+      "material": "TPU; calibrate compression",
+      "extents_mm": [
+        200.8,
+        200.8,
+        2.4
+      ]
+    },
+    "shaft-blank": {
+      "quantity": 2,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        104.0,
+        104.0,
+        6.0
+      ]
+    },
+    "shaft-gasket-tpu": {
+      "quantity": 2,
+      "material": "TPU",
+      "extents_mm": [
+        80.8,
+        80.8,
+        2.4
+      ]
+    },
+    "hybrid-blank": {
+      "quantity": 1,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        76.0,
+        76.0,
+        6.0
+      ]
+    },
+    "hybrid-gasket-tpu": {
+      "quantity": 1,
+      "material": "TPU",
+      "extents_mm": [
+        54.8,
+        54.8,
+        2.4
+      ]
+    },
+    "hinge-fixed-fit-template": {
+      "quantity": 2,
+      "material": "Fit template; final metal bracket",
+      "extents_mm": [
+        44.0,
+        48.0,
+        24.0
+      ]
+    },
+    "hinge-moving-fit-template": {
+      "quantity": 2,
+      "material": "Fit template; final metal bracket",
+      "extents_mm": [
+        44.0,
+        48.0,
+        24.0
+      ]
+    },
+    "prop-clevis-fit-template": {
+      "quantity": 2,
+      "material": "Fit template; final metal clevis",
+      "extents_mm": [
+        32.0,
+        32.0,
+        38.0
+      ]
+    },
+    "closing-clamp-base-fit-template": {
+      "quantity": 4,
+      "material": "Metal bracket, M4 tapped hole; fit template only",
+      "extents_mm": [
+        20.0,
+        20.0,
+        30.0
+      ]
+    },
+    "closing-clamp-hood-fit-template": {
+      "quantity": 4,
+      "material": "Metal bracket; fit template only",
+      "extents_mm": [
+        20.0,
+        20.0,
+        30.0
+      ]
+    },
+    "carrier-top-fit-template": {
+      "quantity": 1,
+      "material": "3 mm aluminium; printed fit template",
+      "extents_mm": [
+        170.0,
+        172.5,
+        3.0
+      ]
+    },
+    "driver-panel-fit-template": {
+      "quantity": 1,
+      "material": "3 mm aluminium; printed fit template",
+      "extents_mm": [
+        140.0,
+        130.0,
+        3.0
+      ]
+    },
+    "din-panel-fit-template": {
+      "quantity": 1,
+      "material": "3 mm aluminium; printed fit template",
+      "extents_mm": [
+        175.0,
+        112.0,
+        3.0
+      ]
+    },
+    "driver-suspension-fit-template": {
+      "quantity": 2,
+      "material": "Metal welded suspension; fit template",
+      "extents_mm": [
+        8.0,
+        47.0,
+        3.0
+      ]
+    },
+    "din-suspension-fit-template": {
+      "quantity": 2,
+      "material": "Metal welded suspension; fit template",
+      "extents_mm": [
+        8.0,
+        22.0,
+        3.0
+      ]
+    },
+    "motor-base-fit-template": {
+      "quantity": 1,
+      "material": "3 mm metal plate; match actual brackets/load",
+      "extents_mm": [
+        210.0,
+        206.0,
+        3.0
+      ]
+    },
+    "motor-base-spacer": {
+      "quantity": 4,
+      "material": "ASA/PETG prototype",
+      "extents_mm": [
+        10.0,
+        10.0,
+        2.0
+      ]
+    }
+  },
+  "closed_body_lid_mm": [
+    238,
+    238,
+    396
+  ],
+  "hinge_axis_mm": [
+    0,
+    246,
+    180
+  ],
+  "closed_model_bounds_mm": [
+    [
+      -38.0,
+      -6.0,
+      0.0
+    ],
+    [
+      250.0,
+      254.0,
+      396.0
+    ]
+  ],
+  "open_mobile_bounds_mm": [
+    [
+      -38.0,
+      238.0,
+      172.0
+    ],
+    [
+      250.0,
+      462.0,
+      430.0
+    ]
+  ],
+  "opening_samples_degrees": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "opening_intersection_tolerance_mm3": 0.01,
+  "prop_pin_centres_mm": [
+    [
+      -30.0,
+      40.0,
+      145.0
+    ],
+    [
+      -30.0,
+      276.0,
+      386.0
+    ]
+  ],
+  "prop_hole_pitch_mm": 337.31,
+  "checks": [
+    "single connected watertight STL parts",
+    "STL reload",
+    "print bounds <=240 mm",
+    "closed pairwise interference",
+    "0..90 degree rigid swept samples",
+    "main gasket fit",
+    "open prop fit"
+  ],
+  "exclusions": [
+    "fasteners",
+    "wiring motion",
+    "elastic gasket contact",
+    "hinge strength",
+    "thermal design",
+    "actual component mount patterns",
+    "water testing"
+  ]
+}

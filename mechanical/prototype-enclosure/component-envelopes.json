@@ -1,0 +1,128 @@
+[
+  {
+    "name": "motor-left",
+    "origin_mm": [
+      121.5,
+      0,
+      71.5
+    ],
+    "size_mm": [
+      57,
+      195,
+      57
+    ],
+    "color": "#edaa43"
+  },
+  {
+    "name": "motor-right",
+    "origin_mm": [
+      261.5,
+      0,
+      71.5
+    ],
+    "size_mm": [
+      57,
+      195,
+      57
+    ],
+    "color": "#edaa43"
+  },
+  {
+    "name": "driver-left-reservation",
+    "origin_mm": [
+      25,
+      45,
+      35
+    ],
+    "size_mm": [
+      45,
+      155,
+      120
+    ],
+    "color": "#ac85d1"
+  },
+  {
+    "name": "driver-right-reservation",
+    "origin_mm": [
+      365,
+      45,
+      35
+    ],
+    "size_mm": [
+      45,
+      155,
+      120
+    ],
+    "color": "#ac85d1"
+  },
+  {
+    "name": "Jetson-with-connectors-reservation",
+    "origin_mm": [
+      75,
+      210,
+      20
+    ],
+    "size_mm": [
+      145,
+      130,
+      85
+    ],
+    "color": "#52b6c7"
+  },
+  {
+    "name": "NDR-240-48",
+    "origin_mm": [
+      345,
+      326.5,
+      40
+    ],
+    "size_mm": [
+      63,
+      113.5,
+      125.2
+    ],
+    "color": "#63b685"
+  },
+  {
+    "name": "12V-converter-reservation",
+    "origin_mm": [
+      30,
+      335,
+      40
+    ],
+    "size_mm": [
+      40,
+      105,
+      125
+    ],
+    "color": "#85c59b"
+  },
+  {
+    "name": "24V-converter-reservation",
+    "origin_mm": [
+      85,
+      375,
+      40
+    ],
+    "size_mm": [
+      25,
+      65,
+      100
+    ],
+    "color": "#85c59b"
+  },
+  {
+    "name": "brake-relays-reservation",
+    "origin_mm": [
+      125,
+      360,
+      40
+    ],
+    "size_mm": [
+      20,
+      80,
+      100
+    ],
+    "color": "#85c59b"
+  }
+]

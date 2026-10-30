@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760">
+<style>text{font-family:Arial;font-size:15px}.title{font-size:24px;font-weight:bold}</style>
+<rect width="1100" height="760" fill="white"/>
+<text x="30" y="35" class="title">DepthPilot hinged roof v4 — complete upper hood lifts</text>
+<text x="30" y="65">Side elevation: front at left. Closed shell 238 W × 238 D × 396 H mm, excluding external hardware.</text>
+<polygon points="70.00,610.00 300.00,610.00 300.00,430.00 70.00,430.00" fill="#657a90" fill-opacity="0.15" stroke="#657a90"/>
+<polygon points="66.00,230.00 70.00,430.00 316.00,438.00 317.04,437.93 318.07,437.73 319.06,437.39 320.00,436.93 320.87,436.35 321.66,435.66 322.35,434.87 322.93,434.00 323.39,433.06 323.73,432.07 323.93,431.04 324.00,430.00 324.00,408.00 304.00,214.00 66.00,214.00" fill="#657a90" fill-opacity="0.15" stroke="#657a90"/>
+<polygon points="308.00,430.00 308.07,431.04 308.27,432.07 308.61,433.06 309.07,434.00 309.65,434.87 310.34,435.66 311.13,436.35 312.00,436.93 312.94,437.39 313.93,437.73 314.96,437.93 316.00,438.00 338.00,438.00 532.00,418.00 532.00,180.00 516.00,180.00 316.00,184.00" fill="#35a383" fill-opacity="0.2" stroke="#35a383"/>
+<polygon points="76.00,573.50 271.00,573.50 271.00,516.50 76.00,516.50" fill="#df9d3d" fill-opacity="0.65" stroke="#df9d3d"/>
+<polygon points="76.00,573.50 271.00,573.50 271.00,516.50 76.00,516.50" fill="#df9d3d" fill-opacity="0.65" stroke="#df9d3d"/>
+<polygon points="135.00,400.00 214.50,400.00 214.50,282.00 135.00,282.00" fill="#9e6fc2" fill-opacity="0.65" stroke="#9e6fc2"/>
+<polygon points="346.00,328.50 464.00,328.50 464.00,249.00 346.00,249.00" fill="#9e6fc2" fill-opacity="0.45" stroke="#9e6fc2"/>
+<polygon points="135.00,400.00 214.50,400.00 214.50,282.00 135.00,282.00" fill="#9e6fc2" fill-opacity="0.65" stroke="#9e6fc2"/>
+<polygon points="346.00,328.50 464.00,328.50 464.00,249.00 346.00,249.00" fill="#9e6fc2" fill-opacity="0.45" stroke="#9e6fc2"/>
+<polygon points="220.00,350.00 274.50,350.00 274.50,260.00 220.00,260.00" fill="#9e6fc2" fill-opacity="0.65" stroke="#9e6fc2"/>
+<polygon points="396.00,388.50 486.00,388.50 486.00,334.00 396.00,334.00" fill="#9e6fc2" fill-opacity="0.45" stroke="#9e6fc2"/>
+<polygon points="194.50,350.00 274.50,350.00 274.50,256.00 194.50,256.00" fill="#9e6fc2" fill-opacity="0.65" stroke="#9e6fc2"/>
+<polygon points="396.00,388.50 490.00,388.50 490.00,308.50 396.00,308.50" fill="#9e6fc2" fill-opacity="0.45" stroke="#9e6fc2"/>
+<circle cx="316" cy="430" r="5" fill="#d44"/>
+<text x="340" y="455">Hinge axis Y=246, Z=180</text>
+<text x="590" y="150">Rear hinge + 90° removable prop</text>
+<text x="590" y="180">Motor/gearbox pairs fixed to metal base</text>
+<text x="590" y="210">Drivers + converter + relays move with roof</text>
+<text x="590" y="240">Fixed cable entry on right side of base</text>
+<text x="590" y="270">TPU gasket at Z=180 closing joint</text>
+<text x="590" y="300">Upper shell is 230 × 230 × 210 for printing</text>
+<text x="30" y="665">Metal carrier and hinge templates included. Open/closed/45° GLBs show component reservations and mounting panels.</text>
+<text x="30" y="695">Rigid motion sampled every 1°. Wiring, hardware loads, thermal performance and water sealing require physical verification.</text>
+</svg>

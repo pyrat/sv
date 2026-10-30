@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+<style>text{font-family:Arial;font-size:13px} .title{font-size:22px;font-weight:bold}</style>
+<rect width="1100" height="720" fill="#fff"/>
+<text x="30" y="32" class="title">DepthPilot prototype enclosure — layout v1 (mm)</text>
+<text x="30" y="58">440 W × 460 D × 228 H; two external Ø110 drums; print panels separately</text>
+<g transform="translate(30 95)"><rect width="440" height="460" fill="#eef1f5" stroke="#222"/>
+<rect x="121.5" y="0" width="57" height="195" fill="#edaa43" stroke="#333"/>
+<text x="124.5" y="16">1</text>
+<rect x="261.5" y="0" width="57" height="195" fill="#edaa43" stroke="#333"/>
+<text x="264.5" y="16">2</text>
+<rect x="25" y="45" width="45" height="155" fill="#ac85d1" stroke="#333"/>
+<text x="28" y="61">3</text>
+<rect x="365" y="45" width="45" height="155" fill="#ac85d1" stroke="#333"/>
+<text x="368" y="61">4</text>
+<rect x="75" y="210" width="145" height="130" fill="#52b6c7" stroke="#333"/>
+<text x="78" y="226">5</text>
+<rect x="345" y="326.5" width="63" height="113.5" fill="#63b685" stroke="#333"/>
+<text x="348" y="342.5">6</text>
+<rect x="30" y="335" width="40" height="105" fill="#85c59b" stroke="#333"/>
+<text x="33" y="351">7</text>
+<rect x="85" y="375" width="25" height="65" fill="#85c59b" stroke="#333"/>
+<text x="88" y="391">8</text>
+<rect x="125" y="360" width="20" height="80" fill="#85c59b" stroke="#333"/>
+<text x="128" y="376">9</text>
+<text x="155" y="-10">FRONT / DRUM SIDE</text>
+<path d="M220 0V460 M0 230H440" stroke="#555" stroke-dasharray="5 5" fill="none"/>
+</g><g transform="translate(580 95)">
+<rect width="440" height="228" fill="#eef1f5" stroke="#222"/>
+<circle cx="150" cy="128" r="55" fill="#edaa43" fill-opacity=".5" stroke="#222"/>
+<rect x="118" y="96" width="64" height="64" fill="none" stroke="#222"/>
+<circle cx="290" cy="128" r="55" fill="#edaa43" fill-opacity=".5" stroke="#222"/>
+<rect x="258" y="96" width="64" height="64" fill="none" stroke="#222"/>
+<text x="100" y="260">Shaft centres: X=150 / 290, Z=100</text>
+<text x="100" y="282">140 mm spacing; 30 mm drum-to-drum gap</text></g>
+<text x="580" y="410">Component envelope legend:</text>
+<rect x="580" y="439" width="12" height="12" fill="#edaa43"/>
+<text x="600" y="450">1. motor-left</text>
+<rect x="580" y="458" width="12" height="12" fill="#edaa43"/>
+<text x="600" y="469">2. motor-right</text>
+<rect x="580" y="477" width="12" height="12" fill="#ac85d1"/>
+<text x="600" y="488">3. driver-left-reservation</text>
+<rect x="580" y="496" width="12" height="12" fill="#ac85d1"/>
+<text x="600" y="507">4. driver-right-reservation</text>
+<rect x="580" y="515" width="12" height="12" fill="#52b6c7"/>
+<text x="600" y="526">5. Jetson-with-connectors-reservation</text>
+<rect x="580" y="534" width="12" height="12" fill="#63b685"/>
+<text x="600" y="545">6. NDR-240-48</text>
+<rect x="580" y="553" width="12" height="12" fill="#85c59b"/>
+<text x="600" y="564">7. 12V-converter-reservation</text>
+<rect x="580" y="572" width="12" height="12" fill="#85c59b"/>
+<text x="600" y="583">8. 24V-converter-reservation</text>
+<rect x="580" y="591" width="12" height="12" fill="#85c59b"/>
+<text x="600" y="602">9. brake-relays-reservation</text>
+<text x="30" y="635">Dashed lines: floor seams. Covers omitted in top view. Component blocks are reservations, not mounting templates.</text>
+<text x="30" y="657">Motor support uses metal brackets/base. See README for mounting, print quantities and unresolved physical fit checks.</text></svg>

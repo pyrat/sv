@@ -1,0 +1,122 @@
+{
+  "floor-tile": {
+    "quantity": 4,
+    "bounds_mm": [
+      220.0,
+      230.0,
+      4.0
+    ],
+    "volume_cm3": 200.88,
+    "triangles": 4716
+  },
+  "roof-tile": {
+    "quantity": 4,
+    "bounds_mm": [
+      220.0,
+      230.0,
+      4.0
+    ],
+    "volume_cm3": 170.64,
+    "triangles": 6396
+  },
+  "front-left": {
+    "quantity": 1,
+    "bounds_mm": [
+      220.0,
+      220.0,
+      4.0
+    ],
+    "volume_cm3": 175.69,
+    "triangles": 4738
+  },
+  "front-right": {
+    "quantity": 1,
+    "bounds_mm": [
+      220.0,
+      220.0,
+      4.0
+    ],
+    "volume_cm3": 175.69,
+    "triangles": 4736
+  },
+  "rear-tile": {
+    "quantity": 2,
+    "bounds_mm": [
+      220.0,
+      220.0,
+      4.0
+    ],
+    "volume_cm3": 165.25,
+    "triangles": 7072
+  },
+  "side-tile": {
+    "quantity": 4,
+    "bounds_mm": [
+      226.0,
+      220.0,
+      4.0
+    ],
+    "volume_cm3": 164.96,
+    "triangles": 6516
+  },
+  "side-fan-tile": {
+    "quantity": 0,
+    "bounds_mm": [
+      226.0,
+      220.0,
+      4.0
+    ],
+    "volume_cm3": 188.98,
+    "triangles": 5640
+  },
+  "seam-splice": {
+    "quantity": 24,
+    "bounds_mm": [
+      48.0,
+      32.0,
+      4.0
+    ],
+    "volume_cm3": 5.89,
+    "triangles": 796
+  },
+  "corner-angle": {
+    "quantity": 40,
+    "bounds_mm": [
+      24.0,
+      24.0,
+      32.0
+    ],
+    "volume_cm3": 4.8,
+    "triangles": 842
+  },
+  "rail-spacer": {
+    "quantity": 6,
+    "bounds_mm": [
+      16.0,
+      16.0,
+      8.0
+    ],
+    "volume_cm3": 1.48,
+    "triangles": 384
+  },
+  "equipment-pad": {
+    "quantity": 2,
+    "bounds_mm": [
+      160.0,
+      120.0,
+      6.0
+    ],
+    "volume_cm3": 115.2,
+    "triangles": 12
+  },
+  "fit-coupon": {
+    "quantity": 1,
+    "bounds_mm": [
+      60.0,
+      60.0,
+      4.0
+    ],
+    "volume_cm3": 12.47,
+    "triangles": 3856
+  }
+}
