@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1090" viewBox="0 0 1100 1090" role="img" aria-labelledby="title description">
+  <title id="title">Shared Modbus RS485 bus — adding CL57RS slave 2</title>
+  <desc id="description">Controller connects along one RS485 bus to the original driver, assumed slave 1, and then to the new CL57RS, slave 2. Original driver termination SW8 is OFF; new CL57RS termination SW8 is ON. Controller end is terminated. New CL57RS switches 1 through 8 are ON, OFF, ON, ON, ON, OFF, ON, ON. Baud rate is 38400; serial format is 8N1.</desc>
+  <defs>
+    <linearGradient id="background" x2="0" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#172338"/></linearGradient>
+    <style>
+      text { font-family:Arial, Helvetica, sans-serif; }
+      .title { fill:#f8fafc; font-size:30px; font-weight:700; }
+      .section { fill:#f1f5f9; font-size:20px; font-weight:700; }
+      .label { fill:#e2e8f0; font-size:16px; }
+      .muted { fill:#a9bbd1; font-size:14px; }
+      .center { text-anchor:middle; }
+      .number { fill:#e2e8f0; font-size:18px; text-anchor:middle; font-weight:700; }
+      .on { fill:#86efac; font-size:16px; font-weight:700; text-anchor:middle; }
+      .off { fill:#fcd34d; font-size:16px; font-weight:700; text-anchor:middle; }
+    </style>
+  </defs>
+  <rect width="1100" height="1090" rx="24" fill="url(#background)"/>
+  <rect x="36" y="36" width="5" height="70" rx="2" fill="#38bdf8"/>
+  <text x="58" y="65" class="title">CL57RS · Shared Modbus RS485 bus</text>
+  <text x="58" y="94" class="muted">Original driver + new CL57RS • One serial port • Unique slave addresses</text>
+  <rect x="36" y="122" width="1028" height="48" rx="10" fill="#153047" stroke="#285371"/>
+  <text x="55" y="152" fill="#bae6fd" font-size="15">Assumes original driver = slave 1 and existing bus = 38400 baud, 8N1. New CL57RS = slave 2.</text>
+
+  <rect x="36" y="192" width="1028" height="250" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="227" class="section">Cable topology and termination</text>
+  <path d="M310 310 H395 M705 310 H790" stroke="#38bdf8" stroke-width="6"/>
+  <text x="352" y="290" class="muted center">RS485</text>
+  <text x="747" y="290" class="muted center">RS485</text>
+  <rect x="60" y="259" width="250" height="113" rx="12" fill="#1e3048" stroke="#64748b"/>
+  <text x="185" y="289" class="section center">Controller / adapter</text>
+  <text x="185" y="319" class="label center">Modbus RTU master</text>
+  <text x="185" y="348" fill="#86efac" font-size="16" text-anchor="middle">120 Ω termination enabled</text>
+  <rect x="395" y="259" width="310" height="113" rx="12" fill="#1e3048" stroke="#64748b"/>
+  <text x="550" y="289" class="section center">Leadshine CS2RS-D507</text>
+  <text x="550" y="319" class="label center">Slave 1 · Middle of cable</text>
+  <text x="550" y="348" fill="#fcd34d" font-size="18" font-weight="700" text-anchor="middle">SW8 OFF</text>
+  <rect x="790" y="259" width="250" height="113" rx="12" fill="#12382d" stroke="#22c55e"/>
+  <text x="915" y="289" class="section center">New CL57RS · Slave 2</text>
+  <text x="915" y="319" class="label center">End of cable</text>
+  <text x="915" y="348" fill="#86efac" font-size="18" font-weight="700" text-anchor="middle">SW8 ON</text>
+  <text x="60" y="403" class="label">Terminate the two physical ends only. Remove any termination at the middle driver.</text>
+  <text x="60" y="426" class="muted">Bus topology diagram, not an RJ45 pinout. Use the drivers’ RS485 ports and verified cable pinout.</text>
+
+  <rect x="36" y="462" width="1028" height="201" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="498" class="section">New CL57RS — DIP switch settings</text>
+  <text x="60" y="527" class="muted">SWITCH</text>
+  <text x="60" y="570" class="muted">SETTING</text>
+  <g class="number">
+    <text x="220" y="527">1</text><text x="330" y="527">2</text>
+    <text x="440" y="527">3</text><text x="550" y="527">4</text>
+    <text x="660" y="527">5</text><text x="770" y="527">6</text>
+    <text x="880" y="527">7</text><text x="990" y="527">8</text>
+  </g>
+  <g fill="#12382d" stroke="#28664c">
+    <rect x="182" y="542" width="76" height="43" rx="8"/>
+    <rect x="402" y="542" width="76" height="43" rx="8"/>
+    <rect x="512" y="542" width="76" height="43" rx="8"/>
+    <rect x="622" y="542" width="76" height="43" rx="8"/>
+    <rect x="842" y="542" width="76" height="43" rx="8"/>
+    <rect x="952" y="542" width="76" height="43" rx="8"/>
+  </g>
+  <g fill="#332615" stroke="#a97924">
+    <rect x="292" y="542" width="76" height="43" rx="8"/>
+    <rect x="732" y="542" width="76" height="43" rx="8"/>
+  </g>
+  <text x="220" y="569" class="on">ON</text><text x="330" y="569" class="off">OFF</text>
+  <text x="440" y="569" class="on">ON</text><text x="550" y="569" class="on">ON</text>
+  <text x="660" y="569" class="on">ON</text><text x="770" y="569" class="off">OFF</text>
+  <text x="880" y="569" class="on">ON</text><text x="990" y="569" class="on">ON</text>
+  <path d="M182 598 H698 M732 598 H918 M952 598 H1028" stroke="#64748b" stroke-width="2"/>
+  <text x="440" y="621" class="label center">Slave address 2</text>
+  <text x="825" y="621" class="label center">38400 baud</text>
+  <text x="990" y="621" class="muted center">120 Ω ON</text>
+  <text x="60" y="648" class="muted">Use the ON marking on the physical switch block; this chart does not imply an up/down direction.</text>
+
+  <rect x="36" y="683" width="1028" height="201" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="719" class="section">Original Leadshine CS2RS-D507 — DIP switch settings</text>
+  <text x="60" y="748" class="muted">SWITCH</text>
+  <text x="60" y="791" class="muted">SETTING</text>
+  <g class="number">
+    <text x="220" y="748">1</text><text x="330" y="748">2</text>
+    <text x="440" y="748">3</text><text x="550" y="748">4</text>
+    <text x="660" y="748">5</text><text x="770" y="748">6</text>
+    <text x="880" y="748">7</text><text x="990" y="748">8</text>
+  </g>
+  <g fill="#12382d" stroke="#28664c">
+    <rect x="292" y="763" width="76" height="43" rx="8"/>
+    <rect x="402" y="763" width="76" height="43" rx="8"/>
+    <rect x="512" y="763" width="76" height="43" rx="8"/>
+    <rect x="622" y="763" width="76" height="43" rx="8"/>
+    <rect x="842" y="763" width="76" height="43" rx="8"/>
+  </g>
+  <g fill="#332615" stroke="#a97924">
+    <rect x="182" y="763" width="76" height="43" rx="8"/>
+    <rect x="732" y="763" width="76" height="43" rx="8"/>
+    <rect x="952" y="763" width="76" height="43" rx="8"/>
+  </g>
+  <text x="220" y="790" class="off">OFF</text><text x="330" y="790" class="on">ON</text>
+  <text x="440" y="790" class="on">ON</text><text x="550" y="790" class="on">ON</text>
+  <text x="660" y="790" class="on">ON</text><text x="770" y="790" class="off">OFF</text>
+  <text x="880" y="790" class="on">ON</text><text x="990" y="790" class="off">OFF</text>
+  <path d="M182 819 H698 M732 819 H918 M952 819 H1028" stroke="#64748b" stroke-width="2"/>
+  <text x="440" y="842" class="label center">Slave address 1 (explicit DIP setting)</text>
+  <text x="825" y="842" class="label center">38400 baud</text>
+  <text x="990" y="842" class="muted center">120 Ω OFF</text>
+  <text x="60" y="869" class="muted">SW1–SW5 all ON selects the software-configured address; the row above explicitly selects address 1.</text>
+
+  <g transform="translate(0 221)">
+  <rect x="36" y="683" width="1028" height="91" rx="12" fill="#332615" stroke="#a97924"/>
+  <text x="56" y="710" fill="#fcd34d" font-size="16" font-weight="700">Power off before changing switches, then power the driver back on.</text>
+  <text x="56" y="735" fill="#f1dfb5" font-size="15">Controller: same serial port, slave 2, 38400 baud, 8N1. Parity/stop bits are configured separately.</text>
+  <text x="56" y="758" fill="#f1dfb5" font-size="15">Do not duplicate slave addresses or add internal termination alongside an external 120 Ω end resistor.</text>
+  <text x="42" y="801" class="muted">Both drivers share the same serial port and 38400 / 8N1 format; address Leadshine as 1 and CL57RS as 2.</text>
+  <a href="https://www.oyostepper.com/images/upload/File/CL57RS.pdf">
+    <text x="42" y="829" fill="#7dd3fc" font-size="13">Reference: CL57RS manual §3.3.7 • Project controller defaults: 38400 baud / 8N1</text>
+  </a>
+  <a href="https://www.leadshine.com/upfiles/downloads/19d35f99f92b99e0417f74134a985aff_1669716112793.pdf">
+    <text x="42" y="851" fill="#7dd3fc" font-size="13">Leadshine reference: CS2RS Series user manual §3.3.7 — slave ID, baud rate and termination DIP tables</text>
+  </a>
+  </g>
+</svg>

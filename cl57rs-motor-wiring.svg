@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1080" viewBox="0 0 1100 1080" role="img" aria-labelledby="title description">
+  <title id="title">CM2M-20 to CL57RS motor wiring</title>
+  <desc id="description">STEPPERONLINE CM2M-20 motor extension cable wiring: black to A+, green to A−, red to B+, blue to B−. GX16 cable pins are 1, 2, 3 and 4 respectively. Diagram shows signal connections, not physical terminal order. Connect only to motor outputs with the driver supply switched off.</desc>
+  <defs>
+    <linearGradient id="background" x2="0" y2="1">
+      <stop stop-color="#0f172a"/><stop offset="1" stop-color="#172338"/>
+    </linearGradient>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .heading { fill:#f8fafc; font-size:30px; font-weight:700; }
+      .section { fill:#f1f5f9; font-size:20px; font-weight:700; }
+      .label { fill:#e2e8f0; font-size:17px; }
+      .muted { fill:#a9bbd1; font-size:14px; }
+      .terminal { fill:#f8fafc; font-size:23px; font-weight:700; text-anchor:middle; }
+      .pin { fill:#f8fafc; font-size:18px; font-weight:700; text-anchor:middle; }
+    </style>
+  </defs>
+  <rect width="1100" height="1080" rx="24" fill="url(#background)"/>
+  <rect x="36" y="36" width="5" height="70" rx="2" fill="#38bdf8"/>
+  <text x="58" y="65" class="heading">CM2M-20 → CL57RS</text>
+  <text x="58" y="94" class="muted">Motor winding cable • 1.7 m / AWG20 • Wiring reference</text>
+  <rect x="36" y="122" width="1028" height="48" rx="10" fill="#153047" stroke="#285371"/>
+  <text x="55" y="152" fill="#bae6fd" font-size="15">For the STEPPERONLINE motor setup discussed: 23HS22-4004D-E1000-B280 + CM2M-20</text>
+
+  <!-- Functional wiring diagram; deliberately not a connector cavity view. -->
+  <rect x="36" y="192" width="566" height="358" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="227" class="section">Motor cable → driver outputs</text>
+  <text x="60" y="254" class="muted">Functional diagram — not physical terminal order</text>
+  <text x="60" y="291" class="muted">CABLE WIRE</text>
+  <text x="435" y="291" class="muted">CL57RS LABEL</text>
+
+  <text x="60" y="329" class="label">Black</text>
+  <path d="M174 323 H464" stroke="#94a3b8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M174 323 H464" stroke="#080b10" stroke-width="6" stroke-linecap="round"/>
+  <rect x="464" y="303" width="83" height="40" rx="8" fill="#25344b" stroke="#64748b"/>
+  <text x="505" y="331" class="terminal">A+</text>
+
+  <text x="60" y="387" class="label">Green</text>
+  <path d="M174 381 H464" stroke="#22c55e" stroke-width="6" stroke-linecap="round"/>
+  <rect x="464" y="361" width="83" height="40" rx="8" fill="#25344b" stroke="#64748b"/>
+  <text x="505" y="389" class="terminal">A−</text>
+
+  <text x="60" y="445" class="label">Red</text>
+  <path d="M174 439 H464" stroke="#ef4444" stroke-width="6" stroke-linecap="round"/>
+  <rect x="464" y="419" width="83" height="40" rx="8" fill="#25344b" stroke="#64748b"/>
+  <text x="505" y="447" class="terminal">B+</text>
+
+  <text x="60" y="503" class="label">Blue</text>
+  <path d="M174 497 H464" stroke="#3b82f6" stroke-width="6" stroke-linecap="round"/>
+  <rect x="464" y="477" width="83" height="40" rx="8" fill="#25344b" stroke="#64748b"/>
+  <text x="505" y="505" class="terminal">B−</text>
+
+  <!-- Cable pin reference table -->
+  <rect x="622" y="192" width="442" height="358" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="646" y="227" class="section">Wire-to-terminal checklist</text>
+  <text x="646" y="254" class="muted">GX16 pin numbers refer to the cable connector.</text>
+  <rect x="642" y="276" width="402" height="36" rx="6" fill="#25344b"/>
+  <text x="656" y="300" class="muted">WIRE</text>
+  <text x="817" y="300" class="muted">OUTPUT</text>
+  <text x="945" y="300" class="muted">GX16 PIN</text>
+  <path d="M646 366 H1040 M646 420 H1040 M646 474 H1040" stroke="#29384d"/>
+  <circle cx="662" cy="340" r="9" fill="#080b10" stroke="#94a3b8"/>
+  <text x="683" y="346" class="label">Black</text>
+  <text x="845" y="346" class="pin">A+</text>
+  <text x="979" y="346" class="pin">1</text>
+  <circle cx="662" cy="394" r="9" fill="#22c55e"/>
+  <text x="683" y="400" class="label">Green</text>
+  <text x="845" y="400" class="pin">A−</text>
+  <text x="979" y="400" class="pin">2</text>
+  <circle cx="662" cy="448" r="9" fill="#ef4444"/>
+  <text x="683" y="454" class="label">Red</text>
+  <text x="845" y="454" class="pin">B+</text>
+  <text x="979" y="454" class="pin">3</text>
+  <circle cx="662" cy="502" r="9" fill="#3b82f6"/>
+  <text x="683" y="508" class="label">Blue</text>
+  <text x="845" y="508" class="pin">B−</text>
+  <text x="979" y="508" class="pin">4</text>
+
+  <!-- CN2 layout transcribed from CL57RS manual, PDF page 17. -->
+  <rect x="36" y="570" width="1028" height="300" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="605" class="section">CN2 motor connector — manual’s connector view</text>
+  <text x="60" y="632" class="muted">Orient the latch/key feature to the LEFT, as drawn in the manual.</text>
+  <rect x="182" y="653" width="300" height="184" rx="12" fill="#25344b" stroke="#94a3b8" stroke-width="3"/>
+  <path d="M182 716 H158 V774 H182" fill="#334155" stroke="#94a3b8" stroke-width="3"/>
+  <text x="61" y="733" fill="#7dd3fc" font-size="13" font-weight="700">LATCH / KEY</text>
+  <path d="M105 751 H149" stroke="#7dd3fc" stroke-width="2"/>
+  <rect x="200" y="666" width="126" height="70" rx="7" fill="#401e25" stroke="#ef4444" stroke-width="2"/>
+  <text x="263" y="694" class="terminal">3 · B+</text>
+  <text x="263" y="720" fill="#fca5a5" font-size="15" text-anchor="middle">RED</text>
+  <rect x="338" y="666" width="126" height="70" rx="7" fill="#172b50" stroke="#3b82f6" stroke-width="2"/>
+  <text x="401" y="694" class="terminal">1 · B−</text>
+  <text x="401" y="720" fill="#93c5fd" font-size="15" text-anchor="middle">BLUE</text>
+  <rect x="200" y="752" width="126" height="70" rx="7" fill="#080b10" stroke="#94a3b8" stroke-width="2"/>
+  <text x="263" y="780" class="terminal">4 · A+</text>
+  <text x="263" y="806" fill="#e2e8f0" font-size="15" text-anchor="middle">BLACK</text>
+  <rect x="338" y="752" width="126" height="70" rx="7" fill="#123727" stroke="#22c55e" stroke-width="2"/>
+  <text x="401" y="780" class="terminal">2 · A−</text>
+  <text x="401" y="806" fill="#86efac" font-size="15" text-anchor="middle">GREEN</text>
+  <text x="520" y="682" class="label" font-weight="700">CN2 pins ≠ GX16 cable pins</text>
+  <text x="520" y="711" class="label">Black: GX16 pin 1 → CN2 pin 4</text>
+  <text x="520" y="738" class="label">Green: GX16 pin 2 → CN2 pin 2</text>
+  <text x="520" y="765" class="label">Red: GX16 pin 3 → CN2 pin 3</text>
+  <text x="520" y="792" class="label">Blue: GX16 pin 4 → CN2 pin 1</text>
+  <text x="520" y="825" fill="#fcd34d" font-size="14">Opposite-face views are mirrored: check moulded numbers.</text>
+  <text x="60" y="857" class="muted">Reference layout, not a verified wire-entry view of your loose housing. Schematic—not to scale.</text>
+
+  <g transform="translate(0 320)">
+  <rect x="36" y="570" width="1028" height="83" rx="12" fill="#332615" stroke="#a97924"/>
+  <text x="56" y="598" fill="#fcd34d" font-size="16" font-weight="700">FOLLOW THE DRIVER’S PRINTED A+ / A− / B+ / B− LABELS.</text>
+  <text x="56" y="623" fill="#f1dfb5" font-size="15">These wires connect to motor outputs, not the driver’s DC power-input terminals.</text>
+  <text x="56" y="644" fill="#f1dfb5" font-size="15">Green is a motor winding lead—not earth. Black is a motor winding lead—not GND.</text>
+  <text x="42" y="686" fill="#f8fafc" font-size="16" font-weight="700">Switch off the driver supply before connecting or disconnecting the motor.</text>
+  <a href="https://files.omc-stepperonline.com/CM2M-20.pdf">
+    <text x="42" y="728" fill="#7dd3fc" font-size="14">Source: STEPPERONLINE CM2M-20 datasheet • Black / Green = winding A • Red / Blue = winding B</text>
+  </a>
+  <a href="https://www.oyostepper.com/images/upload/File/CL57RS.pdf#page=17">
+    <text x="42" y="750" fill="#7dd3fc" font-size="14">Connector layout: CL57RS manual §3.3.2, PDF page 17 / printed page 10</text>
+  </a>
+  </g>
+</svg>

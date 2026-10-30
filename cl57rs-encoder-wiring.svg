@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="920" viewBox="0 0 1100 920" role="img" aria-labelledby="title description">
+  <title id="title">CE2M to CL57RS encoder wiring</title>
+  <desc id="description">CL57RS CN6 driver socket viewed from the front with its key feature on the left. Red goes to pin 5, white to 6, yellow to 9, green to 10, thin black to 11, and blue to 12. Pins 1 through 4, 7 and 8 are unused. The thick black lead is unconfirmed and must remain disconnected and insulated pending identification.</desc>
+  <defs>
+    <linearGradient id="background" x2="0" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#172338"/></linearGradient>
+    <linearGradient id="housing" x2="1" y2="1"><stop stop-color="#334155"/><stop offset="1" stop-color="#1e293b"/></linearGradient>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; }
+      .heading { fill:#f8fafc; font-size:30px; font-weight:700; }
+      .sub { fill:#a9bbd1; font-size:15px; }
+      .section { fill:#f1f5f9; font-size:20px; font-weight:700; }
+      .label { fill:#e2e8f0; font-size:16px; }
+      .muted { fill:#94a3b8; font-size:14px; }
+      .pin { font-size:19px; font-weight:700; text-anchor:middle; }
+      .signal { fill:#cbd5e1; font-size:13px; text-anchor:middle; }
+      .row { fill:#e2e8f0; font-size:17px; }
+    </style>
+  </defs>
+  <rect width="1100" height="920" rx="24" fill="url(#background)"/>
+  <rect x="36" y="36" width="5" height="70" rx="2" fill="#38bdf8"/>
+  <text x="58" y="65" class="heading">CE2M → CL57RS</text>
+  <text x="58" y="94" class="sub">Encoder cable • CN6 connector • Wiring reference</text>
+  <rect x="36" y="122" width="1028" height="48" rx="10" fill="#153047" stroke="#285371"/>
+  <text x="55" y="152" fill="#bae6fd" font-size="15">Applies to: CE2M cable + STEPPERONLINE 23HS22-4004D-E1000-B280 motor</text>
+
+  <!-- Driver socket, front view -->
+  <rect x="36" y="192" width="496" height="490" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="60" y="227" class="section">Driver socket — front view</text>
+  <text x="60" y="253" class="muted">Looking INTO CN6 on the CL57RS driver</text>
+  <rect x="194" y="279" width="226" height="370" rx="20" fill="url(#housing)" stroke="#64748b" stroke-width="3"/>
+  <path d="M194 423 H176 V489 H194" fill="#334155" stroke="#64748b" stroke-width="3"/>
+  <text x="61" y="445" fill="#7dd3fc" font-size="13" font-weight="700">KEY / LATCH</text>
+  <path d="M116 460 H164 M158 455 L166 460 L158 465" fill="none" stroke="#7dd3fc" stroke-width="2"/>
+
+  <circle cx="251" cy="310" r="19" fill="#172033" stroke="#64748b"/>
+  <circle cx="363" cy="310" r="19" fill="#172033" stroke="#64748b"/>
+  <text x="251" y="317" class="pin" fill="#94a3b8">2</text>
+  <text x="363" y="317" class="pin" fill="#94a3b8">1</text>
+  <text x="251" y="344" class="signal">EMPTY</text>
+  <text x="363" y="344" class="signal">EMPTY</text>
+
+  <circle cx="251" cy="369" r="19" fill="#172033" stroke="#64748b"/>
+  <circle cx="363" cy="369" r="19" fill="#172033" stroke="#64748b"/>
+  <text x="251" y="376" class="pin" fill="#94a3b8">4</text>
+  <text x="363" y="376" class="pin" fill="#94a3b8">3</text>
+  <text x="251" y="403" class="signal">EMPTY</text>
+  <text x="363" y="403" class="signal">EMPTY</text>
+
+  <circle cx="251" cy="428" r="19" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="363" cy="428" r="19" fill="#ef4444" stroke="#fca5a5" stroke-width="2"/>
+  <text x="251" y="435" class="pin" fill="#0f172a">6</text>
+  <text x="363" y="435" class="pin" fill="#fff">5</text>
+  <text x="251" y="462" class="signal">WHITE · GND</text>
+  <text x="363" y="462" class="signal">RED · +5V</text>
+
+  <circle cx="251" cy="487" r="19" fill="#172033" stroke="#64748b"/>
+  <circle cx="363" cy="487" r="19" fill="#172033" stroke="#64748b"/>
+  <text x="251" y="494" class="pin" fill="#94a3b8">8</text>
+  <text x="363" y="494" class="pin" fill="#94a3b8">7</text>
+  <text x="251" y="521" class="signal">EMPTY · EZ−</text>
+  <text x="363" y="521" class="signal">EMPTY · EZ+</text>
+
+  <circle cx="251" cy="546" r="19" fill="#22c55e" stroke="#86efac" stroke-width="2"/>
+  <circle cx="363" cy="546" r="19" fill="#facc15" stroke="#fef08a" stroke-width="2"/>
+  <text x="251" y="553" class="pin" fill="#052e16">10</text>
+  <text x="363" y="553" class="pin" fill="#422006">9</text>
+  <text x="251" y="580" class="signal">GREEN · EB−</text>
+  <text x="363" y="580" class="signal">YELLOW · EB+</text>
+
+  <circle cx="251" cy="605" r="19" fill="#2563eb" stroke="#93c5fd" stroke-width="2"/>
+  <circle cx="363" cy="605" r="19" fill="#080b10" stroke="#94a3b8" stroke-width="2"/>
+  <text x="251" y="612" class="pin" fill="#fff">12</text>
+  <text x="363" y="612" class="pin" fill="#fff">11</text>
+  <text x="251" y="639" class="signal">BLUE · EA−</text>
+  <text x="363" y="639" class="signal">THIN BLACK · EA+</text>
+
+  <!-- Wiring table -->
+  <rect x="552" y="192" width="512" height="490" rx="16" fill="#111c2e" stroke="#334155"/>
+  <text x="576" y="227" class="section">Wire-to-pin checklist</text>
+  <text x="576" y="253" class="muted">Match signal functions, not motor-side pin numbers.</text>
+  <rect x="572" y="276" width="472" height="36" rx="6" fill="#25344b"/>
+  <text x="590" y="300" class="muted">WIRE COLOUR</text>
+  <text x="828" y="300" class="muted">SIGNAL</text>
+  <text x="973" y="300" class="muted">PIN</text>
+  <path d="M576 366 H1040 M576 420 H1040 M576 474 H1040 M576 528 H1040 M576 582 H1040 M576 636 H1040" stroke="#29384d"/>
+
+  <circle cx="597" cy="340" r="9" fill="#ef4444"/>
+  <text x="620" y="346" class="row">Red</text>
+  <text x="828" y="346" class="row">+5 V</text>
+  <text x="987" y="346" class="pin" fill="#f8fafc">5</text>
+  <circle cx="597" cy="394" r="9" fill="#f8fafc"/>
+  <text x="620" y="400" class="row">White</text>
+  <text x="828" y="400" class="row">GND</text>
+  <text x="987" y="400" class="pin" fill="#f8fafc">6</text>
+  <circle cx="597" cy="448" r="9" fill="#facc15"/>
+  <text x="620" y="454" class="row">Yellow</text>
+  <text x="828" y="454" class="row">EB+</text>
+  <text x="987" y="454" class="pin" fill="#f8fafc">9</text>
+  <circle cx="597" cy="502" r="9" fill="#22c55e"/>
+  <text x="620" y="508" class="row">Green</text>
+  <text x="828" y="508" class="row">EB−</text>
+  <text x="987" y="508" class="pin" fill="#f8fafc">10</text>
+  <circle cx="597" cy="556" r="9" fill="#080b10" stroke="#94a3b8"/>
+  <text x="620" y="562" class="row">Thin black</text>
+  <text x="828" y="562" class="row">EA+</text>
+  <text x="987" y="562" class="pin" fill="#f8fafc">11</text>
+  <circle cx="597" cy="610" r="9" fill="#2563eb"/>
+  <text x="620" y="616" class="row">Blue</text>
+  <text x="828" y="616" class="row">EA−</text>
+  <text x="987" y="616" class="pin" fill="#f8fafc">12</text>
+  <text x="576" y="662" fill="#7dd3fc" font-size="15" font-weight="700">Leave pins 1–4, 7 and 8 empty.</text>
+
+  <rect x="36" y="702" width="1028" height="83" rx="12" fill="#332615" stroke="#a97924"/>
+  <text x="56" y="729" fill="#fcd34d" font-size="16" font-weight="700">ORIENTATION: the loose plug’s mating-face view is MIRRORED.</text>
+  <text x="56" y="753" fill="#f1dfb5" font-size="15">Its wire-entry rear matches this layout only when held in the same installed orientation.</text>
+  <text x="56" y="774" fill="#f1dfb5" font-size="15">Confirm moulded pin numbers and key position before inserting crimps. Schematic—not to scale.</text>
+  <text x="42" y="815" fill="#f8fafc" font-size="16" font-weight="700">POWER OFF BEFORE WIRING • White is GND—not black.</text>
+  <text x="42" y="841" class="label">Thick black lead: identity unconfirmed. Leave disconnected and insulate until identified.</text>
+  <text x="42" y="866" class="muted">Verify thin black continuity to CE2M motor-side pin 1 with the cable unplugged at both ends.</text>
+  <a href="https://www.oyostepper.com/images/upload/File/CL57RS.pdf#page=19">
+    <text x="42" y="898" fill="#7dd3fc" font-size="13">Reference: CL57RS manual, CN6 drawing, PDF page 19 • CE2M and motor manufacturer connection tables</text>
+  </a>
+</svg>
