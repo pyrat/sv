@@ -63,8 +63,11 @@ positioning. Telemetry exposes profile and actual position separately; no
 rope-length or gearbox conversion is assumed.
 
 The drive must already be enabled and idle with no alarms. Configure motor
-current, encoder resolution, limits, homing and brake output in MotionStudio.
-The driver controls the Phoenix relay and brake timing (Pr4.19/Pr4.20); software
+current, encoder resolution, limits and homing in MotionStudio. Brake output
+assignment and timing can be configured directly over Modbus RS485; see the
+[verified controller configuration and Phoenix relay wiring](../sv-docs/depthpilot-brake-configuration.md).
+DO1 is assigned Brake Control and saved to EEPROM, with 250 ms release and
+engagement delays. The driver controls the Phoenix relay and brake timing (Pr4.19/Pr4.20); software
 does not switch the relay or force-enable the motor. Pr0.07=0 only returns
 enable control to I/O, so it is deliberately not exposed as a disable command.
 
