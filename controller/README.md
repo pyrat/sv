@@ -16,6 +16,12 @@ CLI remains a low-level operation and does not run these two-axis sequences.
 These sequential moves describe the current implementation; they do not implement
 the coordinated two-drum rope mechanism below.
 
+The dedicated **[two-drum commissioning API/UI](ROPE-COMMISSIONING.md)** now
+implements the unloaded fixed-diameter prototype model using a shared RS485 bus.
+Run `go run ./cmd/depthpilot-rope` for simulation; use `-simulate=false` on the
+Jetson. It serves its own embedded UI and requires an explicit temporary origin
+before accepting movement.
+
 ## Proposed two-drum rope configuration
 
 The agreed mechanism uses **two winding/storage drums**, a trolley travelling on
@@ -58,8 +64,27 @@ command pulses for rope change ΔL   = motor revolutions × configured pulses/re
 ```
 
 Read and verify each drive's command resolution separately; the CL57RS was tested
-at 10,000 command pulses per motor revolution. Wind-in/pay-out motor signs remain
-to be established by slow tests with a clearly specified viewing direction. Mark
+at 10,000 command pulses per motor revolution. Unloaded direction checks confirmed
+that **positive commands rotate both drums anticlockwise when viewed from the
+drum's outer face towards the gearbox**. Each drum completed a positive 50,000-pulse
+move (five motor turns, one quarter drum turn) at 30 motor RPM without alarms.
+The motors will be mounted vertically above one another, with rope wound the same
+way on both drums. For both, **clockwise pays out and anticlockwise winds in**, using
+the same outer-face-towards-gearbox viewing direction. Positive motor commands
+therefore wind in; negative commands pay out. For payout-positive rope coordinates:
+
+```text
+Δmotor_turns_1 = −ΔL1 × 20 / (π × 0.080)
+Δmotor_turns_2 = −ΔL2 × 20 / (π × 0.080)
+
+Substituting the horizontal-run rope model:
+Δmotor_turns_1 =  Δx       × 20 / (π × 0.080)
+Δmotor_turns_2 = −(Δx + Δz) × 20 / (π × 0.080)
+```
+
+The earlier payout-to-turn conversion gives magnitudes; these signed equations
+include the confirmed command direction and planned winding orientation. Verify
+the winding orientation physically when rope is fitted. Mark
 each drum so turns and direction are visible. With equal virtual diameters and
 gearing, a horizontal-only command should produce equal drum rotation magnitudes
 in their respective wind-in/pay-out directions; a vertical-only command should
@@ -123,7 +148,7 @@ Before implementing the geometry, record:
 
 - Support span, usable trolley travel, and drum/pulley heights.
 - Each drum's core diameter, usable winding width, rope diameter and stored length.
-- Verify the installed 20:1 gearing and establish each drum's wind-in/pay-out sign.
+- Verify the installed 20:1 gearing and the documented winding orientation when rope is fitted.
 - Camera/load weight, allowable camera drop, and travel limits.
 - Reference trolley position, camera drop and initial rope fill on each drum.
 
@@ -134,8 +159,10 @@ trajectory, transform it to rope lengths, and convert those lengths into motor
 positions using each drum's calibrated winding map. Velocity and acceleration
 profiles must correspond to that same trajectory; simply starting independent
 moves together, or moving X then Y, does not maintain the requested camera path.
-Coordinated execution, reference/homing handling, brake sequencing, limits and
-fault/stop behaviour still need implementation and commissioning.
+The dedicated unloaded commissioning mode implements paired profiles, temporary
+virtual references, brake sequencing, bounds and fault/stop handling. Physical
+homing, loaded-rope limits, tension behaviour and multilayer calibration remain
+to be implemented and commissioned.
 
 The connected drives are **Leadshine CS2RS-D507 (slave 1)** and **STEPPERONLINE
 CL57RS (slave 2)** on a shared RS485 adapter at **38400 baud, 8N1**. The service
@@ -146,9 +173,9 @@ See the [bus and DIP-switch diagram](../cl57rs-modbus-wiring.svg).
 `config.example.json` still contains the earlier `cl57pr` X-axis placeholder and
 independent-axis calibration. It is not a configuration for this agreed mechanism.
 The current service rejects enabled `cl57pr` hardware, and the direct CLI remains
-CS2RS-specific. CL57RS integration and the coupled rope model are pending; bench
-tests do not establish application support. Example calibration values remain
-placeholders and both references start invalid.
+CS2RS-specific. Use `depthpilot-rope` for the implemented CL57RS/shared-bus coupled
+commissioning mode; it does not consume this legacy configuration file. Example
+calibration values remain placeholders and both legacy references start invalid.
 
 ## Build and use
 

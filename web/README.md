@@ -206,7 +206,9 @@ CS2RS-D507 Y-axis configuration; enabled CL57PR hardware currently rejects servi
 startup. The agreed mechanism instead uses two coupled winding/storage drums with
 a fixed far-end pulley and a trolley-mounted camera-rope pulley. Connected drives
 are CL57RS and CS2RS-D507 on a shared RS485 bus. CL57RS application support, shared-bus
-coordination and coupled motion planning remain to be implemented. See the
+coordination and coupled motion planning are available in the dedicated
+[unloaded commissioning API/UI](../controller/ROPE-COMMISSIONING.md), rather than
+this legacy independent-axis React dashboard. See the
 [rope configuration and movement model](../controller/README.md#proposed-two-drum-rope-configuration).
 An omitted axis is displayed as unconfigured.
 

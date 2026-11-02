@@ -10,6 +10,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
     "test": "playwright test",
+    "test:rope": "node scripts/rope-smoke.mjs",
     "format": "prettier --write src tests *.ts *.json"
   },
   "dependencies": {

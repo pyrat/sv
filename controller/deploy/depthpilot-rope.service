@@ -1,0 +1,20 @@
+[Unit]
+Description=DepthPilot unloaded two-drum commissioning API and UI
+After=network.target
+
+[Service]
+Type=simple
+User=createview
+SupplementaryGroups=dialout
+WorkingDirectory=/opt/depthpilot-rope
+ExecStart=/opt/depthpilot-rope/depthpilot-rope -simulate=false -listen :8080 -port /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
