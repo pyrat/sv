@@ -201,10 +201,13 @@ sudo systemctl enable --now depthpilot
 Copy [`config.example.json`](../controller/config.example.json) to
 `controller/config.local.json`. Its numeric values are **demo placeholders**,
 and `reference_valid` is false. Replace them with measured calibration before
-enabling that axis. The example selects CL57PR for X (rope loop/pulley) and
-CS2RS-D507 for Y (storage drum). **CL57PR hardware control is pending a confirmed
-register manual**; enabling its hardware axis currently rejects service startup. See the
-[controller documentation](../controller/README.md#prototype-axis-selection).
+enabling that axis. The example retains the earlier CL57PR X-axis placeholder and
+CS2RS-D507 Y-axis configuration; enabled CL57PR hardware currently rejects service
+startup. The agreed mechanism instead uses two coupled winding/storage drums with
+a fixed far-end pulley and a trolley-mounted camera-rope pulley. Connected drives
+are CL57RS and CS2RS-D507 on a shared RS485 bus. CL57RS application support, shared-bus
+coordination and coupled motion planning remain to be implemented. See the
+[rope configuration and movement model](../controller/README.md#proposed-two-drum-rope-configuration).
 An omitted axis is displayed as unconfigured.
 
 ```sh
@@ -231,8 +234,9 @@ Zero is the drive's existing homed/established reference. No reference is inferr
 from a saved position, and setting `reference_valid` does not perform homing.
 Re-establish reference after power loss before enabling hardware movement.
 The first implementation uses a **constant metres/count conversion**: multilayer
-drum winding needs a measured nonlinear calibration model before these values
-can represent deployed rope length over the full travel.
+drum winding on both proposed drums needs a winding model or measured nonlinear
+calibration before these values can represent deployed rope length over the full
+travel. The current sequential X/Y moves do not implement the coupled rope model.
 
 ### Saved home, counters and the reference
 
