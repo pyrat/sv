@@ -1,0 +1,42 @@
+{
+  "status": "prototype; no physical print, fit, thermal or load testing",
+  "units": "mm (STL); metres (GLB)",
+  "mount_edge": "bottom 79 mm short edge, opposite GPIO",
+  "slider_release_direction": "+X (right from fan side)",
+  "print_extents_mm": [
+    82.5,
+    112.0,
+    24.0
+  ],
+  "plastic_volume_cm3": 16.79,
+  "watertight_shells": 2,
+  "shells": "one chassis and one captive slider in a single print",
+  "rigid_slider_travel_checked_mm": [
+    0,
+    6
+  ],
+  "travel_samples": 61,
+  "nominal_rail_interference_mm3": 0,
+  "positive_lock_and_end_stops_checked": true,
+  "flexure_deformation_simulated": false,
+  "pcb_holes_xy_mm": [
+    [
+      4,
+      4
+    ],
+    [
+      62,
+      4
+    ],
+    [
+      4,
+      96
+    ],
+    [
+      62,
+      96
+    ]
+  ],
+  "pilot_diameter_mm": 2.15,
+  "pcb_underside_z_mm": 14.0
+}
