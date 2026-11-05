@@ -1,0 +1,26 @@
+{
+  "status": "prototype; physical fit and flexure performance untested",
+  "adapter_envelope_mm": [
+    83.0,
+    26.0,
+    17.0
+  ],
+  "tunnel_clearance_per_side_mm": 0.7,
+  "print_extents_mm": [
+    39.4,
+    86.4,
+    35.8
+  ],
+  "plastic_volume_cm3": 25.08,
+  "watertight_shells": 2,
+  "rigid_slider_travel_mm": [
+    0,
+    6
+  ],
+  "travel_samples": 61,
+  "nominal_rail_and_adapter_interference_mm3": 0,
+  "lock_end_stops_sidewalls_and_roof_checked": true,
+  "flexure_deformation_simulated": false,
+  "rail_axial_retention": "requires external DIN rail end stops",
+  "adapter_axial_retention": "requires cable ties; tunnel alone is open-ended"
+}
