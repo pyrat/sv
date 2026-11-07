@@ -3,19 +3,49 @@
   "units": "mm (STL); metres (GLB)",
   "mount_edge": "bottom 79 mm short edge, opposite GPIO",
   "slider_release_direction": "+X (right from fan side)",
-  "print_extents_mm": [
-    82.5,
-    112.0,
+  "assembly_extents_mm": [
+    90.5,
+    115.0,
     24.0
   ],
-  "plastic_volume_cm3": 16.79,
+  "print_extents_mm": {
+    "body": [
+      90.5,
+      115.0,
+      24.0
+    ],
+    "slider": [
+      26.5,
+      12.2,
+      5.0
+    ],
+    "clip-test": [
+      73.0,
+      17.0,
+      24.0
+    ]
+  },
+  "plastic_volume_cm3": 19.5,
   "watertight_shells": 2,
-  "shells": "one chassis and one captive slider in a single print",
+  "shells": "separately printed chassis and slide-in latch",
+  "clip_test": "complete standalone tunnel clip; uses the same slider and M3 screw",
+  "clip_test_geometry_checks_passed": true,
+  "stop_hardware": "one M3 x 8 mm screw behind solid slider tail; 2.5 mm roof pilot",
+  "retention": "four-sided tunnel; external screw blocks withdrawal; rear shoulder stops insertion",
+  "transverse_retention_checked": true,
+  "withdrawal_stop_checked_at_clearance_extremes": true,
+  "maximum_withdrawal_mm": 6.5,
+  "vertical_slider_clearance_mm": 0.5,
+  "rigid_insertion_path_checked_mm": [
+    0,
+    38
+  ],
+  "insertion_samples": 381,
   "rigid_slider_travel_checked_mm": [
     0,
-    6
+    6.5
   ],
-  "travel_samples": 61,
+  "travel_samples": 66,
   "nominal_rail_interference_mm3": 0,
   "positive_lock_and_end_stops_checked": true,
   "flexure_deformation_simulated": false,
